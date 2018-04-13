@@ -1,0 +1,1303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<psml version="0" creator="wireshark/2.4.4">
+<structure>
+<section>No.</section>
+<section>Time</section>
+<section>Source</section>
+<section>Destination</section>
+<section>Protocol</section>
+<section>Length</section>
+<section>Info</section>
+</structure>
+
+<packet>
+<section>1</section>
+<section>21:09:03,582842</section>
+<section>192.168.43.171</section>
+<section>149.154.163.73</section>
+<section>TCP</section>
+<section>54</section>
+<section>40365 \xe2\x86\x92 80 [FIN, ACK] Seq=1 Ack=1 Win=256 Len=0</section>
+</packet>
+
+<packet>
+<section>2</section>
+<section>21:09:03,651692</section>
+<section>149.154.163.73</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>54</section>
+<section>80 \xe2\x86\x92 40365 [FIN, ACK] Seq=1 Ack=2 Win=7568 Len=0</section>
+</packet>
+
+<packet>
+<section>3</section>
+<section>21:09:03,651759</section>
+<section>192.168.43.171</section>
+<section>149.154.163.73</section>
+<section>TCP</section>
+<section>54</section>
+<section>40365 \xe2\x86\x92 80 [ACK] Seq=2 Ack=2 Win=256 Len=0</section>
+</packet>
+
+<packet>
+<section>4</section>
+<section>21:09:05,073830</section>
+<section>87.240.129.186</section>
+<section>192.168.43.171</section>
+<section>TLSv1.2</section>
+<section>360</section>
+<section>Application Data</section>
+</packet>
+
+<packet>
+<section>5</section>
+<section>21:09:05,080006</section>
+<section>192.168.43.171</section>
+<section>87.240.129.186</section>
+<section>TLSv1.2</section>
+<section>190</section>
+<section>Application Data</section>
+</packet>
+
+<packet>
+<section>6</section>
+<section>21:09:05,173240</section>
+<section>87.240.129.186</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>54</section>
+<section>443 \xe2\x86\x92 40344 [ACK] Seq=307 Ack=137 Win=91 Len=0</section>
+</packet>
+
+<packet>
+<section>7</section>
+<section>21:09:05,358937</section>
+<section>192.168.43.171</section>
+<section>77.88.55.80</section>
+<section>TCP</section>
+<section>1454</section>
+<section>40450 \xe2\x86\x92 443 [ACK] Seq=1 Ack=1 Win=254 Len=1400 [TCP segment of a reassembled PDU]</section>
+</packet>
+
+<packet>
+<section>8</section>
+<section>21:09:05,358953</section>
+<section>192.168.43.171</section>
+<section>77.88.55.80</section>
+<section>TLSv1.2</section>
+<section>1107</section>
+<section>Application Data</section>
+</packet>
+
+<packet>
+<section>9</section>
+<section>21:09:05,428703</section>
+<section>77.88.55.80</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>54</section>
+<section>443 \xe2\x86\x92 40450 [ACK] Seq=1 Ack=2454 Win=180 Len=0</section>
+</packet>
+
+<packet>
+<section>10</section>
+<section>21:09:05,428704</section>
+<section>77.88.55.80</section>
+<section>192.168.43.171</section>
+<section>TLSv1.2</section>
+<section>301</section>
+<section>Application Data, Application Data</section>
+</packet>
+
+<packet>
+<section>11</section>
+<section>21:09:05,453066</section>
+<section>192.168.43.171</section>
+<section>77.88.55.80</section>
+<section>TCP</section>
+<section>54</section>
+<section>40450 \xe2\x86\x92 443 [ACK] Seq=2454 Ack=248 Win=253 Len=0</section>
+</packet>
+
+<packet>
+<section>12</section>
+<section>21:09:05,487962</section>
+<section>213.180.193.147</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>207</section>
+<section>5222 \xe2\x86\x92 40311 [PSH, ACK] Seq=1 Ack=1 Win=15 Len=153 [TCP segment of a reassembled PDU]</section>
+</packet>
+
+<packet>
+<section>13</section>
+<section>21:09:05,488225</section>
+<section>192.168.43.171</section>
+<section>213.180.193.147</section>
+<section>TCP</section>
+<section>271</section>
+<section>40311 \xe2\x86\x92 5222 [PSH, ACK] Seq=1 Ack=154 Win=254 Len=217 [TCP segment of a reassembled PDU]</section>
+</packet>
+
+<packet>
+<section>14</section>
+<section>21:09:05,543017</section>
+<section>213.180.193.147</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>54</section>
+<section>5222 \xe2\x86\x92 40311 [ACK] Seq=154 Ack=218 Win=16 Len=0</section>
+</packet>
+
+<packet>
+<section>15</section>
+<section>21:09:09,092568</section>
+<section>94.100.180.62</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>54</section>
+<section>80 \xe2\x86\x92 40447 [FIN, ACK] Seq=1 Ack=1 Win=16800 Len=0</section>
+</packet>
+
+<packet>
+<section>16</section>
+<section>21:09:09,092630</section>
+<section>192.168.43.171</section>
+<section>94.100.180.62</section>
+<section>TCP</section>
+<section>54</section>
+<section>40447 \xe2\x86\x92 80 [ACK] Seq=1 Ack=2 Win=63706 Len=0</section>
+</packet>
+
+<packet>
+<section>17</section>
+<section>21:09:10,951943</section>
+<section>87.240.129.186</section>
+<section>192.168.43.171</section>
+<section>TLSv1.2</section>
+<section>360</section>
+<section>Application Data</section>
+</packet>
+
+<packet>
+<section>18</section>
+<section>21:09:10,958560</section>
+<section>192.168.43.171</section>
+<section>87.240.129.186</section>
+<section>TLSv1.2</section>
+<section>190</section>
+<section>Application Data</section>
+</packet>
+
+<packet>
+<section>19</section>
+<section>21:09:11,010688</section>
+<section>87.240.129.186</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>54</section>
+<section>443 \xe2\x86\x92 40344 [ACK] Seq=613 Ack=273 Win=93 Len=0</section>
+</packet>
+
+<packet>
+<section>20</section>
+<section>21:09:12,703005</section>
+<section>192.30.253.125</section>
+<section>192.168.43.171</section>
+<section>TLSv1.2</section>
+<section>85</section>
+<section>Application Data</section>
+</packet>
+
+<packet>
+<section>21</section>
+<section>21:09:12,703240</section>
+<section>192.168.43.171</section>
+<section>192.30.253.125</section>
+<section>TLSv1.2</section>
+<section>89</section>
+<section>Application Data</section>
+</packet>
+
+<packet>
+<section>22</section>
+<section>21:09:12,873888</section>
+<section>192.30.253.125</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>54</section>
+<section>443 \xe2\x86\x92 38456 [ACK] Seq=32 Ack=36 Win=31 Len=0</section>
+</packet>
+
+<packet>
+<section>23</section>
+<section>21:09:13,362259</section>
+<section>192.168.43.171</section>
+<section>94.100.180.62</section>
+<section>TCP</section>
+<section>54</section>
+<section>40447 \xe2\x86\x92 80 [FIN, ACK] Seq=1 Ack=2 Win=63706 Len=0</section>
+</packet>
+
+<packet>
+<section>24</section>
+<section>21:09:13,362905</section>
+<section>192.168.43.171</section>
+<section>192.168.43.1</section>
+<section>DNS</section>
+<section>69</section>
+<section>Standard query 0xbdc4 A e.mail.ru</section>
+</packet>
+
+<packet>
+<section>25</section>
+<section>21:09:13,390197</section>
+<section>192.168.43.1</section>
+<section>192.168.43.171</section>
+<section>DNS</section>
+<section>133</section>
+<section>Standard query response 0xbdc4 A e.mail.ru A 217.69.139.215 A 94.100.180.215 A 94.100.180.216 A 217.69.139.216</section>
+</packet>
+
+<packet>
+<section>26</section>
+<section>21:09:13,390895</section>
+<section>192.168.43.171</section>
+<section>217.69.139.215</section>
+<section>TCP</section>
+<section>66</section>
+<section>40455 \xe2\x86\x92 443 [SYN] Seq=0 Win=8192 Len=0 MSS=1460 WS=256 SACK_PERM=1</section>
+</packet>
+
+<packet>
+<section>27</section>
+<section>21:09:13,434030</section>
+<section>94.100.180.62</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>54</section>
+<section>80 \xe2\x86\x92 40447 [ACK] Seq=2 Ack=2 Win=16800 Len=0</section>
+</packet>
+
+<packet>
+<section>28</section>
+<section>21:09:13,434031</section>
+<section>217.69.139.215</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>62</section>
+<section>443 \xe2\x86\x92 40455 [SYN, ACK] Seq=0 Ack=1 Win=14100 Len=0 MSS=1400 SACK_PERM=1</section>
+</packet>
+
+<packet>
+<section>29</section>
+<section>21:09:13,434150</section>
+<section>192.168.43.171</section>
+<section>217.69.139.215</section>
+<section>TCP</section>
+<section>54</section>
+<section>40455 \xe2\x86\x92 443 [ACK] Seq=1 Ack=1 Win=64400 Len=0</section>
+</packet>
+
+<packet>
+<section>30</section>
+<section>21:09:13,434425</section>
+<section>192.168.43.171</section>
+<section>217.69.139.215</section>
+<section>TLSv1.2</section>
+<section>251</section>
+<section>Client Hello</section>
+</packet>
+
+<packet>
+<section>31</section>
+<section>21:09:13,499936</section>
+<section>217.69.139.215</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>54</section>
+<section>443 \xe2\x86\x92 40455 [ACK] Seq=1 Ack=198 Win=15008 Len=0</section>
+</packet>
+
+<packet>
+<section>32</section>
+<section>21:09:13,506545</section>
+<section>217.69.139.215</section>
+<section>192.168.43.171</section>
+<section>TLSv1.2</section>
+<section>1454</section>
+<section>Server Hello</section>
+</packet>
+
+<packet>
+<section>33</section>
+<section>21:09:13,506546</section>
+<section>217.69.139.215</section>
+<section>192.168.43.171</section>
+<section>TLSv1.2</section>
+<section>1454</section>
+<section>Certificate [TCP segment of a reassembled PDU]</section>
+</packet>
+
+<packet>
+<section>34</section>
+<section>21:09:13,506547</section>
+<section>217.69.139.215</section>
+<section>192.168.43.171</section>
+<section>TLSv1.2</section>
+<section>109</section>
+<section>Server Key Exchange, Server Hello Done</section>
+</packet>
+
+<packet>
+<section>35</section>
+<section>21:09:13,506610</section>
+<section>192.168.43.171</section>
+<section>217.69.139.215</section>
+<section>TCP</section>
+<section>54</section>
+<section>40455 \xe2\x86\x92 443 [ACK] Seq=198 Ack=2856 Win=64400 Len=0</section>
+</packet>
+
+<packet>
+<section>36</section>
+<section>21:09:13,511275</section>
+<section>192.168.43.171</section>
+<section>217.69.139.215</section>
+<section>TLSv1.2</section>
+<section>180</section>
+<section>Client Key Exchange, Change Cipher Spec, Encrypted Handshake Message</section>
+</packet>
+
+<packet>
+<section>37</section>
+<section>21:09:13,568302</section>
+<section>217.69.139.215</section>
+<section>192.168.43.171</section>
+<section>TLSv1.2</section>
+<section>312</section>
+<section>New Session Ticket, Change Cipher Spec, Encrypted Handshake Message</section>
+</packet>
+
+<packet>
+<section>38</section>
+<section>21:09:13,568931</section>
+<section>192.168.43.171</section>
+<section>217.69.139.215</section>
+<section>TCP</section>
+<section>1454</section>
+<section>40455 \xe2\x86\x92 443 [ACK] Seq=324 Ack=3114 Win=64142 Len=1400 [TCP segment of a reassembled PDU]</section>
+</packet>
+
+<packet>
+<section>39</section>
+<section>21:09:13,568942</section>
+<section>192.168.43.171</section>
+<section>217.69.139.215</section>
+<section>TLSv1.2</section>
+<section>564</section>
+<section>Application Data</section>
+</packet>
+
+<packet>
+<section>40</section>
+<section>21:09:13,569060</section>
+<section>192.168.43.171</section>
+<section>217.69.139.215</section>
+<section>TLSv1.2</section>
+<section>714</section>
+<section>Application Data</section>
+</packet>
+
+<packet>
+<section>41</section>
+<section>21:09:13,639085</section>
+<section>217.69.139.215</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>54</section>
+<section>443 \xe2\x86\x92 40455 [ACK] Seq=3114 Ack=2234 Win=19600 Len=0</section>
+</packet>
+
+<packet>
+<section>42</section>
+<section>21:09:13,639086</section>
+<section>217.69.139.215</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>1454</section>
+<section>443 \xe2\x86\x92 40455 [ACK] Seq=3114 Ack=2894 Win=22400 Len=1400 [TCP segment of a reassembled PDU]</section>
+</packet>
+
+<packet>
+<section>43</section>
+<section>21:09:13,639089</section>
+<section>217.69.139.215</section>
+<section>192.168.43.171</section>
+<section>TLSv1.2</section>
+<section>1195</section>
+<section>Application Data</section>
+</packet>
+
+<packet>
+<section>44</section>
+<section>21:09:13,639176</section>
+<section>192.168.43.171</section>
+<section>217.69.139.215</section>
+<section>TCP</section>
+<section>54</section>
+<section>40455 \xe2\x86\x92 443 [ACK] Seq=2894 Ack=5655 Win=64400 Len=0</section>
+</packet>
+
+<packet>
+<section>45</section>
+<section>21:09:15,574987</section>
+<section>192.168.43.171</section>
+<section>192.168.43.1</section>
+<section>DNS</section>
+<section>77</section>
+<section>Standard query 0x3b6b A ocsp.digicert.com</section>
+</packet>
+
+<packet>
+<section>46</section>
+<section>21:09:15,669185</section>
+<section>192.168.43.171</section>
+<section>192.168.43.1</section>
+<section>DNS</section>
+<section>77</section>
+<section>Standard query 0x3b6b A ocsp.digicert.com</section>
+</packet>
+
+<packet>
+<section>47</section>
+<section>21:09:15,703786</section>
+<section>192.168.43.1</section>
+<section>192.168.43.171</section>
+<section>DNS</section>
+<section>249</section>
+<section>Standard query response 0x3b6b A ocsp.digicert.com CNAME cs9.wac.phicdn.net A 93.184.220.29 NS ns1.phicdn.net NS ns2.phicdn.net A 72.21.80.5 AAAA 2606:2800:1::5 A 72.21.80.6 AAAA 2606:2800:1::6</section>
+</packet>
+
+<packet>
+<section>48</section>
+<section>21:09:15,704462</section>
+<section>192.168.43.171</section>
+<section>93.184.220.29</section>
+<section>TCP</section>
+<section>66</section>
+<section>40456 \xe2\x86\x92 80 [SYN] Seq=0 Win=8192 Len=0 MSS=1460 WS=256 SACK_PERM=1</section>
+</packet>
+
+<packet>
+<section>49</section>
+<section>21:09:15,759024</section>
+<section>93.184.220.29</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>66</section>
+<section>80 \xe2\x86\x92 40456 [SYN, ACK] Seq=0 Ack=1 Win=65535 Len=0 MSS=1400 SACK_PERM=1 WS=512</section>
+</packet>
+
+<packet>
+<section>50</section>
+<section>21:09:15,759120</section>
+<section>192.168.43.171</section>
+<section>93.184.220.29</section>
+<section>TCP</section>
+<section>54</section>
+<section>40456 \xe2\x86\x92 80 [ACK] Seq=1 Ack=1 Win=65792 Len=0</section>
+</packet>
+
+<packet>
+<section>51</section>
+<section>21:09:15,759275</section>
+<section>192.168.43.171</section>
+<section>93.184.220.29</section>
+<section>HTTP</section>
+<section>409</section>
+<section>GET /MFEwTzBNMEswSTAJBgUrDgMCGgUABBQ50otx%2Fh0Ztl%2Bz8SiPI7wEWVxDlQQUTiJUIBiV5uNu5g%2F6%2BrkS7QYXjzkCEAkO6MXeW%2Fpi0q4v9wl8SFc%3D HTTP/1.1 </section>
+</packet>
+
+<packet>
+<section>52</section>
+<section>21:09:15,837803</section>
+<section>93.184.220.29</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>54</section>
+<section>80 \xe2\x86\x92 40456 [ACK] Seq=1 Ack=356 Win=147456 Len=0</section>
+</packet>
+
+<packet>
+<section>53</section>
+<section>21:09:15,837804</section>
+<section>93.184.220.29</section>
+<section>192.168.43.171</section>
+<section>OCSP</section>
+<section>842</section>
+<section>Response</section>
+</packet>
+
+<packet>
+<section>54</section>
+<section>21:09:15,842345</section>
+<section>192.168.43.171</section>
+<section>192.168.43.1</section>
+<section>DNS</section>
+<section>75</section>
+<section>Standard query 0x2fe8 A crls.yandex.net</section>
+</packet>
+
+<packet>
+<section>55</section>
+<section>21:09:15,856649</section>
+<section>192.168.43.171</section>
+<section>93.184.220.29</section>
+<section>TCP</section>
+<section>54</section>
+<section>40456 \xe2\x86\x92 80 [ACK] Seq=356 Ack=789 Win=64768 Len=0</section>
+</packet>
+
+<packet>
+<section>56</section>
+<section>21:09:15,873186</section>
+<section>192.168.43.1</section>
+<section>192.168.43.171</section>
+<section>DNS</section>
+<section>325</section>
+<section>Standard query response 0x2fe8 A crls.yandex.net CNAME crls.yandex.ru CNAME cdn.yandex.net A 5.45.205.232 A 5.45.205.234 A 5.45.205.235 A 5.45.205.233 A 5.45.205.231 NS ns3.yandex.ru NS ns4.yandex.ru A 87.250.250.1 AAAA 2a02:6b8::1001 A 77.88.21.1 AAAA 2a02:6b8:0:1::1:1</section>
+</packet>
+
+<packet>
+<section>57</section>
+<section>21:09:15,873873</section>
+<section>192.168.43.171</section>
+<section>5.45.205.232</section>
+<section>TCP</section>
+<section>66</section>
+<section>40457 \xe2\x86\x92 80 [SYN] Seq=0 Win=8192 Len=0 MSS=1460 WS=256 SACK_PERM=1</section>
+</packet>
+
+<packet>
+<section>58</section>
+<section>21:09:15,914262</section>
+<section>5.45.205.232</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>66</section>
+<section>80 \xe2\x86\x92 40457 [SYN, ACK] Seq=0 Ack=1 Win=42300 Len=0 MSS=1400 SACK_PERM=1 WS=4096</section>
+</packet>
+
+<packet>
+<section>59</section>
+<section>21:09:15,914354</section>
+<section>192.168.43.171</section>
+<section>5.45.205.232</section>
+<section>TCP</section>
+<section>54</section>
+<section>40457 \xe2\x86\x92 80 [ACK] Seq=1 Ack=1 Win=65792 Len=0</section>
+</packet>
+
+<packet>
+<section>60</section>
+<section>21:09:15,914516</section>
+<section>192.168.43.171</section>
+<section>5.45.205.232</section>
+<section>HTTP</section>
+<section>304</section>
+<section>GET /certum/ycasha2.crl HTTP/1.1 </section>
+</packet>
+
+<packet>
+<section>61</section>
+<section>21:09:15,969775</section>
+<section>5.45.205.232</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>54</section>
+<section>80 \xe2\x86\x92 40457 [ACK] Seq=1 Ack=251 Win=45056 Len=0</section>
+</packet>
+
+<packet>
+<section>62</section>
+<section>21:09:15,982765</section>
+<section>5.45.205.232</section>
+<section>192.168.43.171</section>
+<section>HTTP</section>
+<section>327</section>
+<section>HTTP/1.1 304 Not Modified </section>
+</packet>
+
+<packet>
+<section>63</section>
+<section>21:09:15,988182</section>
+<section>192.168.43.171</section>
+<section>192.168.43.1</section>
+<section>DNS</section>
+<section>73</section>
+<section>Standard query 0x5350 A crl.certum.pl</section>
+</packet>
+
+<packet>
+<section>64</section>
+<section>21:09:15,997212</section>
+<section>192.168.43.171</section>
+<section>5.45.205.232</section>
+<section>TCP</section>
+<section>54</section>
+<section>40457 \xe2\x86\x92 80 [ACK] Seq=251 Ack=274 Win=65280 Len=0</section>
+</packet>
+
+<packet>
+<section>65</section>
+<section>21:09:16,025533</section>
+<section>192.168.43.1</section>
+<section>192.168.43.171</section>
+<section>DNS</section>
+<section>544</section>
+<section>Standard query response 0x5350 A crl.certum.pl CNAME crl.uzto.netdna-cdn.com A 23.111.11.210 NS ns-97.awsdns-12.com NS dns2.p04.nsone.net NS dns3.p04.nsone.net NS dns4.p04.nsone.net NS ns-946.awsdns-54.net NS ns-1716.awsdns-22.co.uk NS dns1.p04.nsone.net NS ns-1326.awsdns-37.org A 198.51.44.4 A 198.51.45.4 A 198.51.44.68 A 198.51.45.68 A 205.251.197.46 AAAA 2600:9000:5305:2e00::1 A 205.251.198.180 AAAA 2600:9000:5306:b400::1 A 205.251.195.178 AAAA 2600:9000:5303:b200::1</section>
+</packet>
+
+<packet>
+<section>66</section>
+<section>21:09:16,026338</section>
+<section>192.168.43.171</section>
+<section>23.111.11.210</section>
+<section>TCP</section>
+<section>66</section>
+<section>40458 \xe2\x86\x92 80 [SYN] Seq=0 Win=8192 Len=0 MSS=1460 WS=256 SACK_PERM=1</section>
+</packet>
+
+<packet>
+<section>67</section>
+<section>21:09:16,083889</section>
+<section>23.111.11.210</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>66</section>
+<section>80 \xe2\x86\x92 40458 [SYN, ACK] Seq=0 Ack=1 Win=29200 Len=0 MSS=1400 SACK_PERM=1 WS=1024</section>
+</packet>
+
+<packet>
+<section>68</section>
+<section>21:09:16,083988</section>
+<section>192.168.43.171</section>
+<section>23.111.11.210</section>
+<section>TCP</section>
+<section>54</section>
+<section>40458 \xe2\x86\x92 80 [ACK] Seq=1 Ack=1 Win=65792 Len=0</section>
+</packet>
+
+<packet>
+<section>69</section>
+<section>21:09:16,084113</section>
+<section>192.168.43.171</section>
+<section>23.111.11.210</section>
+<section>HTTP</section>
+<section>292</section>
+<section>GET /ctnca.crl HTTP/1.1 </section>
+</packet>
+
+<packet>
+<section>70</section>
+<section>21:09:16,184486</section>
+<section>23.111.11.210</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>54</section>
+<section>80 \xe2\x86\x92 40458 [ACK] Seq=1 Ack=239 Win=30720 Len=0</section>
+</packet>
+
+<packet>
+<section>71</section>
+<section>21:09:16,184488</section>
+<section>23.111.11.210</section>
+<section>192.168.43.171</section>
+<section>HTTP</section>
+<section>311</section>
+<section>HTTP/1.1 304 Not Modified </section>
+</packet>
+
+<packet>
+<section>72</section>
+<section>21:09:16,188356</section>
+<section>192.168.43.171</section>
+<section>23.111.11.210</section>
+<section>HTTP</section>
+<section>289</section>
+<section>GET /ca.crl HTTP/1.1 </section>
+</packet>
+
+<packet>
+<section>73</section>
+<section>21:09:16,275552</section>
+<section>23.111.11.210</section>
+<section>192.168.43.171</section>
+<section>HTTP</section>
+<section>311</section>
+<section>HTTP/1.1 304 Not Modified </section>
+</packet>
+
+<packet>
+<section>74</section>
+<section>21:09:16,279748</section>
+<section>192.168.43.171</section>
+<section>192.168.43.1</section>
+<section>DNS</section>
+<section>76</section>
+<section>Standard query 0x0314 A crl.comodoca.com</section>
+</packet>
+
+<packet>
+<section>75</section>
+<section>21:09:16,310956</section>
+<section>192.168.43.171</section>
+<section>23.111.11.210</section>
+<section>TCP</section>
+<section>54</section>
+<section>40458 \xe2\x86\x92 80 [ACK] Seq=474 Ack=515 Win=65280 Len=0</section>
+</packet>
+
+<packet>
+<section>76</section>
+<section>21:09:16,311572</section>
+<section>192.168.43.1</section>
+<section>192.168.43.171</section>
+<section>DNS</section>
+<section>499</section>
+<section>Standard query response 0x0314 A crl.comodoca.com CNAME crl.comodoca.com.cdn.cloudflare.net A 104.16.90.188 A 104.16.91.188 A 104.16.93.188 A 104.16.89.188 A 104.16.92.188 NS ns2.cloudflare.net NS ns5.cloudflare.net NS ns4.cloudflare.net NS ns3.cloudflare.net NS ns1.cloudflare.net A 173.245.59.31 AAAA 2400:cb00:2049:1::adf5:3b1f AAAA 2400:cb00:2049:1::c629:de83 A 198.41.222.31 AAAA 2400:cb00:2049:1::c629:de1f A 198.41.223.131 AAAA 2400:cb00:2049:1::c629:df83 A 198.41.223.31 AAAA 2400:cb00:2049:1::c629:df1f</section>
+</packet>
+
+<packet>
+<section>77</section>
+<section>21:09:16,312196</section>
+<section>192.168.43.171</section>
+<section>104.16.90.188</section>
+<section>TCP</section>
+<section>66</section>
+<section>40459 \xe2\x86\x92 80 [SYN] Seq=0 Win=8192 Len=0 MSS=1460 WS=256 SACK_PERM=1</section>
+</packet>
+
+<packet>
+<section>78</section>
+<section>21:09:16,348843</section>
+<section>104.16.90.188</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>66</section>
+<section>80 \xe2\x86\x92 40459 [SYN, ACK] Seq=0 Ack=1 Win=29200 Len=0 MSS=1400 SACK_PERM=1 WS=1024</section>
+</packet>
+
+<packet>
+<section>79</section>
+<section>21:09:16,348939</section>
+<section>192.168.43.171</section>
+<section>104.16.90.188</section>
+<section>TCP</section>
+<section>54</section>
+<section>40459 \xe2\x86\x92 80 [ACK] Seq=1 Ack=1 Win=65792 Len=0</section>
+</packet>
+
+<packet>
+<section>80</section>
+<section>21:09:16,349079</section>
+<section>192.168.43.171</section>
+<section>104.16.90.188</section>
+<section>HTTP</section>
+<section>286</section>
+<section>GET /COMODORSACertificationAuthority.crl HTTP/1.1 </section>
+</packet>
+
+<packet>
+<section>81</section>
+<section>21:09:16,421888</section>
+<section>104.16.90.188</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>54</section>
+<section>80 \xe2\x86\x92 40459 [ACK] Seq=1 Ack=233 Win=30720 Len=0</section>
+</packet>
+
+<packet>
+<section>82</section>
+<section>21:09:16,425726</section>
+<section>104.16.90.188</section>
+<section>192.168.43.171</section>
+<section>HTTP</section>
+<section>540</section>
+<section>HTTP/1.1 304 Not Modified </section>
+</packet>
+
+<packet>
+<section>83</section>
+<section>21:09:16,458124</section>
+<section>192.168.43.171</section>
+<section>192.168.43.1</section>
+<section>DNS</section>
+<section>78</section>
+<section>Standard query 0xaf7b A crl.globalsign.net</section>
+</packet>
+
+<packet>
+<section>84</section>
+<section>21:09:16,476219</section>
+<section>192.168.43.171</section>
+<section>104.16.90.188</section>
+<section>TCP</section>
+<section>54</section>
+<section>40459 \xe2\x86\x92 80 [ACK] Seq=233 Ack=487 Win=65280 Len=0</section>
+</packet>
+
+<packet>
+<section>85</section>
+<section>21:09:16,508400</section>
+<section>192.168.43.1</section>
+<section>192.168.43.171</section>
+<section>DNS</section>
+<section>498</section>
+<section>Standard query response 0xaf7b A crl.globalsign.net CNAME global.prd.cdn.globalsign.com CNAME cdn.globalsigncdn.com.cdn.cloudflare.net A 104.31.75.124 A 104.31.74.124 NS ns5.cloudflare.net NS ns1.cloudflare.net NS ns3.cloudflare.net NS ns4.cloudflare.net NS ns2.cloudflare.net A 173.245.59.31 AAAA 2400:cb00:2049:1::adf5:3b1f AAAA 2400:cb00:2049:1::c629:de83 A 198.41.222.31 AAAA 2400:cb00:2049:1::c629:de1f A 198.41.223.131 AAAA 2400:cb00:2049:1::c629:df83 A 198.41.223.31 AAAA 2400:cb00:2049:1::c629:df1f</section>
+</packet>
+
+<packet>
+<section>86</section>
+<section>21:09:16,509084</section>
+<section>192.168.43.171</section>
+<section>104.31.75.124</section>
+<section>TCP</section>
+<section>66</section>
+<section>40460 \xe2\x86\x92 80 [SYN] Seq=0 Win=8192 Len=0 MSS=1460 WS=256 SACK_PERM=1</section>
+</packet>
+
+<packet>
+<section>87</section>
+<section>21:09:16,543546</section>
+<section>104.31.75.124</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>66</section>
+<section>80 \xe2\x86\x92 40460 [SYN, ACK] Seq=0 Ack=1 Win=29200 Len=0 MSS=1400 SACK_PERM=1 WS=1024</section>
+</packet>
+
+<packet>
+<section>88</section>
+<section>21:09:16,543643</section>
+<section>192.168.43.171</section>
+<section>104.31.75.124</section>
+<section>TCP</section>
+<section>54</section>
+<section>40460 \xe2\x86\x92 80 [ACK] Seq=1 Ack=1 Win=65792 Len=0</section>
+</packet>
+
+<packet>
+<section>89</section>
+<section>21:09:16,555030</section>
+<section>192.168.43.171</section>
+<section>104.31.75.124</section>
+<section>HTTP</section>
+<section>264</section>
+<section>GET /root-r2.crl HTTP/1.1 </section>
+</packet>
+
+<packet>
+<section>90</section>
+<section>21:09:16,620706</section>
+<section>104.31.75.124</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>54</section>
+<section>80 \xe2\x86\x92 40460 [ACK] Seq=1 Ack=211 Win=30720 Len=0</section>
+</packet>
+
+<packet>
+<section>91</section>
+<section>21:09:16,641137</section>
+<section>104.31.75.124</section>
+<section>192.168.43.171</section>
+<section>HTTP</section>
+<section>389</section>
+<section>HTTP/1.1 304 Not Modified </section>
+</packet>
+
+<packet>
+<section>92</section>
+<section>21:09:16,694462</section>
+<section>192.168.43.171</section>
+<section>104.31.75.124</section>
+<section>TCP</section>
+<section>54</section>
+<section>40460 \xe2\x86\x92 80 [ACK] Seq=211 Ack=336 Win=65280 Len=0</section>
+</packet>
+
+<packet>
+<section>93</section>
+<section>21:09:17,365404</section>
+<section>192.168.43.171</section>
+<section>77.88.55.80</section>
+<section>TCP</section>
+<section>1454</section>
+<section>40450 \xe2\x86\x92 443 [ACK] Seq=2454 Ack=248 Win=253 Len=1400 [TCP segment of a reassembled PDU]</section>
+</packet>
+
+<packet>
+<section>94</section>
+<section>21:09:17,365421</section>
+<section>192.168.43.171</section>
+<section>77.88.55.80</section>
+<section>TLSv1.2</section>
+<section>1107</section>
+<section>Application Data</section>
+</packet>
+
+<packet>
+<section>95</section>
+<section>21:09:17,368113</section>
+<section>192.168.43.171</section>
+<section>192.168.43.255</section>
+<section>NBNS</section>
+<section>92</section>
+<section>Name query NB WPAD&lt;00&gt;</section>
+</packet>
+
+<packet>
+<section>97</section>
+<section>21:09:17,368538</section>
+<section>192.168.43.171</section>
+<section>224.0.0.252</section>
+<section>LLMNR</section>
+<section>64</section>
+<section>Standard query 0xc559 A wpad</section>
+</packet>
+
+<packet>
+<section>98</section>
+<section>21:09:17,490792</section>
+<section>77.88.55.80</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>54</section>
+<section>443 \xe2\x86\x92 40450 [ACK] Seq=248 Ack=4907 Win=202 Len=0</section>
+</packet>
+
+<packet>
+<section>99</section>
+<section>21:09:17,491301</section>
+<section>77.88.55.80</section>
+<section>192.168.43.171</section>
+<section>TLSv1.2</section>
+<section>301</section>
+<section>Application Data, Application Data</section>
+</packet>
+
+<packet>
+<section>100</section>
+<section>21:09:17,522722</section>
+<section>192.168.43.171</section>
+<section>77.88.55.80</section>
+<section>TCP</section>
+<section>54</section>
+<section>40450 \xe2\x86\x92 443 [ACK] Seq=4907 Ack=495 Win=252 Len=0</section>
+</packet>
+
+<packet>
+<section>102</section>
+<section>21:09:17,788585</section>
+<section>192.168.43.171</section>
+<section>224.0.0.252</section>
+<section>LLMNR</section>
+<section>64</section>
+<section>Standard query 0xc559 A wpad</section>
+</packet>
+
+<packet>
+<section>103</section>
+<section>21:09:18,126150</section>
+<section>192.168.43.171</section>
+<section>192.168.43.255</section>
+<section>NBNS</section>
+<section>92</section>
+<section>Name query NB WPAD&lt;00&gt;</section>
+</packet>
+
+<packet>
+<section>104</section>
+<section>21:09:18,481567</section>
+<section>192.168.43.171</section>
+<section>149.154.163.73</section>
+<section>SSL</section>
+<section>143</section>
+<section>Continuation Data</section>
+</packet>
+
+<packet>
+<section>105</section>
+<section>21:09:18,565067</section>
+<section>149.154.163.73</section>
+<section>192.168.43.171</section>
+<section>SSL</section>
+<section>143</section>
+<section>Continuation Data</section>
+</packet>
+
+<packet>
+<section>106</section>
+<section>21:09:18,612602</section>
+<section>192.168.43.171</section>
+<section>149.154.163.73</section>
+<section>TCP</section>
+<section>54</section>
+<section>40364 \xe2\x86\x92 443 [ACK] Seq=90 Ack=90 Win=63758 Len=0</section>
+</packet>
+
+<packet>
+<section>107</section>
+<section>21:09:18,875133</section>
+<section>87.240.129.186</section>
+<section>192.168.43.171</section>
+<section>TLSv1.2</section>
+<section>361</section>
+<section>Application Data</section>
+</packet>
+
+<packet>
+<section>108</section>
+<section>21:09:18,878410</section>
+<section>192.168.43.171</section>
+<section>192.168.43.255</section>
+<section>NBNS</section>
+<section>92</section>
+<section>Name query NB WPAD&lt;00&gt;</section>
+</packet>
+
+<packet>
+<section>109</section>
+<section>21:09:18,880669</section>
+<section>192.168.43.171</section>
+<section>87.240.129.186</section>
+<section>TLSv1.2</section>
+<section>190</section>
+<section>Application Data</section>
+</packet>
+
+<packet>
+<section>110</section>
+<section>21:09:18,933213</section>
+<section>87.240.129.186</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>54</section>
+<section>443 \xe2\x86\x92 40344 [ACK] Seq=920 Ack=409 Win=95 Len=0</section>
+</packet>
+
+<packet>
+<section>111</section>
+<section>21:09:19,474700</section>
+<section>23.111.11.210</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>54</section>
+<section>80 \xe2\x86\x92 40458 [FIN, ACK] Seq=515 Ack=474 Win=31744 Len=0</section>
+</packet>
+
+<packet>
+<section>112</section>
+<section>21:09:19,474770</section>
+<section>192.168.43.171</section>
+<section>23.111.11.210</section>
+<section>TCP</section>
+<section>54</section>
+<section>40458 \xe2\x86\x92 80 [ACK] Seq=474 Ack=516 Win=65280 Len=0</section>
+</packet>
+
+<packet>
+<section>113</section>
+<section>21:09:19,474832</section>
+<section>192.168.43.171</section>
+<section>23.111.11.210</section>
+<section>TCP</section>
+<section>54</section>
+<section>40458 \xe2\x86\x92 80 [FIN, ACK] Seq=474 Ack=516 Win=65280 Len=0</section>
+</packet>
+
+<packet>
+<section>114</section>
+<section>21:09:19,546224</section>
+<section>23.111.11.210</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>54</section>
+<section>80 \xe2\x86\x92 40458 [ACK] Seq=516 Ack=475 Win=31744 Len=0</section>
+</packet>
+
+<packet>
+<section>115</section>
+<section>21:09:21,011877</section>
+<section>5.45.205.232</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>54</section>
+<section>80 \xe2\x86\x92 40457 [FIN, ACK] Seq=274 Ack=251 Win=45056 Len=0</section>
+</packet>
+
+<packet>
+<section>116</section>
+<section>21:09:21,011945</section>
+<section>192.168.43.171</section>
+<section>5.45.205.232</section>
+<section>TCP</section>
+<section>54</section>
+<section>40457 \xe2\x86\x92 80 [ACK] Seq=251 Ack=275 Win=65280 Len=0</section>
+</packet>
+
+<packet>
+<section>117</section>
+<section>21:09:21,011962</section>
+<section>192.168.43.171</section>
+<section>5.45.205.232</section>
+<section>TCP</section>
+<section>54</section>
+<section>40457 \xe2\x86\x92 80 [FIN, ACK] Seq=251 Ack=275 Win=65280 Len=0</section>
+</packet>
+
+<packet>
+<section>118</section>
+<section>21:09:21,070606</section>
+<section>5.45.205.232</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>54</section>
+<section>80 \xe2\x86\x92 40457 [ACK] Seq=275 Ack=252 Win=45056 Len=0</section>
+</packet>
+
+<packet>
+<section>119</section>
+<section>21:09:21,472711</section>
+<section>87.240.129.186</section>
+<section>192.168.43.171</section>
+<section>TLSv1.2</section>
+<section>387</section>
+<section>Application Data</section>
+</packet>
+
+<packet>
+<section>120</section>
+<section>21:09:21,479324</section>
+<section>192.168.43.171</section>
+<section>87.240.129.186</section>
+<section>TLSv1.2</section>
+<section>190</section>
+<section>Application Data</section>
+</packet>
+
+<packet>
+<section>123</section>
+<section>21:09:21,521322</section>
+<section>87.240.129.186</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>54</section>
+<section>443 \xe2\x86\x92 40344 [ACK] Seq=1253 Ack=545 Win=97 Len=0</section>
+</packet>
+
+<packet>
+<section>124</section>
+<section>21:09:24,262699</section>
+<section>192.168.43.171</section>
+<section>87.240.129.133</section>
+<section>SSL</section>
+<section>55</section>
+<section>Continuation Data</section>
+</packet>
+
+<packet>
+<section>125</section>
+<section>21:09:24,318592</section>
+<section>87.240.129.133</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>66</section>
+<section>443 \xe2\x86\x92 40448 [ACK] Seq=1 Ack=2 Win=62 Len=0 SLE=1 SRE=2</section>
+</packet>
+
+<packet>
+<section>126</section>
+<section>21:09:26,686986</section>
+<section>192.168.43.171</section>
+<section>213.180.204.82</section>
+<section>SSL</section>
+<section>55</section>
+<section>Continuation Data</section>
+</packet>
+
+<packet>
+<section>127</section>
+<section>21:09:26,787052</section>
+<section>213.180.204.82</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>66</section>
+<section>443 \xe2\x86\x92 40451 [ACK] Seq=1 Ack=2 Win=11 Len=0 SLE=1 SRE=2</section>
+</packet>
+
+<packet>
+<section>128</section>
+<section>21:09:28,363794</section>
+<section>192.168.43.171</section>
+<section>77.88.55.80</section>
+<section>TCP</section>
+<section>1454</section>
+<section>40450 \xe2\x86\x92 443 [ACK] Seq=4907 Ack=495 Win=252 Len=1400 [TCP segment of a reassembled PDU]</section>
+</packet>
+
+<packet>
+<section>129</section>
+<section>21:09:28,363808</section>
+<section>192.168.43.171</section>
+<section>77.88.55.80</section>
+<section>TLSv1.2</section>
+<section>1107</section>
+<section>Application Data</section>
+</packet>
+
+<packet>
+<section>130</section>
+<section>21:09:28,449200</section>
+<section>77.88.55.80</section>
+<section>192.168.43.171</section>
+<section>TCP</section>
+<section>54</section>
+<section>443 \xe2\x86\x92 40450 [ACK] Seq=495 Ack=7360 Win=224 Len=0</section>
+</packet>
+
+<packet>
+<section>131</section>
+<section>21:09:28,449201</section>
+<section>77.88.55.80</section>
+<section>192.168.43.171</section>
+<section>TLSv1.2</section>
+<section>301</section>
+<section>Application Data, Application Data</section>
+</packet>
+
+<packet>
+<section>132</section>
+<section>21:09:28,481021</section>
+<section>192.168.43.171</section>
+<section>77.88.55.80</section>
+<section>TCP</section>
+<section>54</section>
+<section>40450 \xe2\x86\x92 443 [ACK] Seq=7360 Ack=742 Win=257 Len=0</section>
+</packet>
+
+<packet>
+<section>133</section>
+<section>21:09:28,977630</section>
+<section>87.240.129.186</section>
+<section>192.168.43.171</section>
+<section>TLSv1.2</section>
+<section>360</section>
+<section>Application Data</section>
+</packet>
+
+</psml>
