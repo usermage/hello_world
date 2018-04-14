@@ -148,7 +148,7 @@ void load_ip(){
 		fscanf(fi, "%d %d", &old_mass_ip[i], &old_ssam_ip[i]);
 		mmmax += old_ssam_ip[i];
 	}
-	printf("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\t%d\n", mmmax);
+	//printf("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\t%d\n", mmmax);
 	fclose(fi);
 }
 
@@ -160,7 +160,7 @@ double baes_ip(){
 		result += a*log(((double)(ssam_ip[i] + z)) / ((to_ip)+z*max_const));
 		//printf("! = %lf\n", result);
 	}
-	printf("! = %lf\n", result);
+	//printf("! = %lf\n", result);
 	return result;
 }
 
@@ -280,7 +280,7 @@ void load_my_ip(){
 		fscanf(fi, "%d %d", &old_mass_my_ip[i], &old_ssam_my_ip[i]);
 		mmmax += old_ssam_my_ip[i];
 	}
-	printf("\n\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n%d\n\n", mmmax);
+	//printf("\n\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n%d\n\n", mmmax);
 	fclose(fi);
 }
 
@@ -291,7 +291,7 @@ double baes_my_ip(){
 		result += a*log(((double)(ssam_my_ip[i] + z)) / ((to_my_ip)+z*max_const));
 		//printf("! = %lf\n", result);
 	}
-	printf("! = %lf\n", result);
+	//printf("! = %lf\n", result);
 	return result;
 }
 
@@ -403,15 +403,6 @@ int pos_rr(int a)
 	return 0;
 }
 
-//По массиву!!! и тоько (cv dsit)
-/*int pos_rr(int a){
-for (int i = 0; i < old_max_mass_rr; i++){
-if (old_mass_rr[i] == a)
-return old_ssam_rr[i];
-}
-return 0;
-}*/
-
 
 void load_rr(){
 	int mmmax = 0;
@@ -424,7 +415,7 @@ void load_rr(){
 		fscanf(fi, "%d %d", &old_mass_rr[i], &old_ssam_rr[i]);
 		mmmax += old_ssam_rr[i];
 	}
-	printf("\n\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n%d\n\n", mmmax);
+	//printf("\n\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n%d\n\n", mmmax);
 	fclose(fi);
 }
 
@@ -435,7 +426,7 @@ double baes_rr(){
 		result += a*log(((double)(ssam_rr[i] + z)) / ((to_rr)+z*max_const));
 		//printf("! = %lf\n", result);
 	}
-	printf("! = %lf\n", result);
+	//printf("! = %lf\n", result);
 	return result;
 }
 
@@ -547,14 +538,6 @@ int pos_protocol(int a)
 	return 0;
 }
 
-//По массиву!!! и тоько (cv dsit)
-/*int pos_protocol(int a){
-for (int i = 0; i < old_max_mass_protocol; i++){
-if (old_mass_protocol[i] == a)
-return old_ssam_protocol[i];
-}
-return 0;
-}*/
 
 
 void load_protocol(){
@@ -568,7 +551,7 @@ void load_protocol(){
 		fscanf(fi, "%d %d", &old_mass_protocol[i], &old_ssam_protocol[i]);
 		mmmax += old_ssam_protocol[i];
 	}
-	printf("\n\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n%d\n\n", mmmax);
+	//printf("\n\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n%d\n\n", mmmax);
 	fclose(fi);
 }
 
@@ -579,7 +562,7 @@ double baes_protocol(){
 		result += a*log(((double)(ssam_protocol[i] + z)) / ((to_protocol)+z*max_const));
 		//printf("! = %lf\n", result);
 	}
-	printf("! = %lf\n", result);
+	//printf("! = %lf\n", result);
 	return result;
 }
 
@@ -678,7 +661,7 @@ long long int old_max_mass_time;
 long long int pos_time(long long int a)
 {
 	long long int low, high, middle;
-	low = 0;
+	low = 1;
 	high = old_max_mass_time - 1;
 	while (low <= high)
 	{
@@ -704,7 +687,7 @@ void load_time(){
 		fscanf(fi, "%d %d", &old_mass_time[i], &old_ssam_time[i]);
 		mmmax += old_ssam_time[i];
 	}
-	printf("\n\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n%d\n\n", mmmax);
+	//printf("\n\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n%d\n\n", mmmax);
 	fclose(fi);
 }
 
@@ -721,7 +704,7 @@ double baes_time(){
 			printf("()\n");
 		}*/
 	}
-	printf("! = %lf\n", result);
+	//printf("! = %lf\n", result);
 	return result;
 }
 
@@ -952,7 +935,7 @@ int main(){
 	int super_max = 0;
 	for (int i = 0; i < max_mass_ip; i++)
 		super_max += ssam_ip[i];
-	printf("#############################\t%d\n", super_max);
+	printf("Value::\t%d\n", super_max);
 	printf("ip: %d\n", max_mass_ip);
 	printf("my_ip: %d\n", max_mass_my_ip);
 	printf("rr: %d\n", max_mass_rr);
@@ -962,32 +945,33 @@ int main(){
 	//Проверка
 	
 	double soda[5][6];
-
+	//Формируем список значений [параметр][юзер]
 	for (int i = 0; i < 6; i++){
 		load_ip();
 		soda[0][i] = baes_ip();
-		printf("ip:%lf\n", soda[0][i]);
+		//printf("ip:%lf\n", soda[0][i]);
 		load_my_ip();
 		soda[1][i] = baes_my_ip();
-		printf("my_ip:%lf\n", soda[1][i]);
+		//printf("my_ip:%lf\n", soda[1][i]);
 		load_rr();
 		soda[2][i] = baes_rr();
-		printf("rr:%lf\n", soda[2][i]);
+		//printf("rr:%lf\n", soda[2][i]);
 		load_protocol();
 		soda[3][i] = baes_protocol();
-		printf("pro:%lf\n", soda[3][i]);
+		//printf("pro:%lf\n", soda[3][i]);
 		load_time();
 		soda[4][i] = baes_time();
-		printf("time:%lf\n", soda[4][i]);
+		//printf("time:%lf\n", soda[4][i]);
 	}
 	//printf("\n%lld\n", global->time);
-
+	printf("\nNaive bayes result:\n");
 	for (int i = 0; i < 6; i++){
+		printf("User %d: ", i + 1);
 		for (int u = 0; u < 5; u++)
 			printf("%lf\t", soda[u][i]);
 		printf("\n");
 	}
-
+	//Считаем сумму для каждого параметра (для подсчёта относительной величины)
 	double proc[5];
 	for (int i = 0; i < 6; i++)
 		proc[i] = 0;
@@ -995,26 +979,35 @@ int main(){
 		for (int u = 0; u < 5; u++)
 			proc[u] += soda[u][i];
 	}
-	printf("\n\n");
+	printf("\nSumm:\n");
 	for (int i = 0; i < 5; i++)
-		printf("%lf\n", proc[i]);
+		printf("%lf\t", proc[i]);
+	printf("\n\n");
 
+	printf("Chance of belonging:\n");
 	for (int i = 0; i < 6; i++){
+		printf("User %d: ", i+1);
 		for (int u = 0; u < 5; u++)
+		if (proc[u] != 0.0)
 			printf("%lf\t", fabs(soda[u][i]/proc[u]*100));
 		printf("\n");
 	}
 
+	const double lol[] = { 0.73, 0.59, 0.31, 0.23, 0.69 };
+
+	//Считаем проценты для каждого юзера
 	double maxim[6];
 	for (int i = 0; i < 6; i++){
 		maxim[i] = 0;
 		for (int u = 0; u < 5; u++)
-			maxim[i] += soda[u][i] / proc[u];
+		if (proc[u] != 0.0)
+			maxim[i] += soda[u][i] / proc[u] * lol[u];
 	}
 
+	printf("\nResult value:\n");
 	for (int i = 0; i < 6; i++)
-		printf("%lf\n", maxim[i]);
-
+		printf("User %d = %lf\n", i+1, maxim[i]);
+	//С самым наибольшим - искомый
 	int rm = 0;
 	double rmr = maxim[0];
 	for (int i = 1; i < 6; i++)
@@ -1022,8 +1015,11 @@ int main(){
 		rmr = maxim[i];
 		rm = i;
 	}
-	printf("User %d\n", rm + 1);
 
+	printf("\n");
+	if (rmr < 1 / 6 * 5)
+		printf("Warning!\n");
+	printf("It`s user %d\n", rm + 1);
 	//Загрузка данных в тестовые файлы
 	/*
 	print_to_file_ip();
@@ -1036,6 +1032,6 @@ int main(){
 	//load();
 	//printf("%ld\n", baes());
 	fclose(zlo);
-	printf("%d\n", sizeof(struct packet));
+	//printf("%d\n", sizeof(struct packet));
 }
 
