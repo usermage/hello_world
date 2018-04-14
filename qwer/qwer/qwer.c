@@ -70,6 +70,33 @@ void push_ip2(int a){
 	return now;
 }
 
+#define z 3
+int max_const = 1000;
+int keeek = 0;
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////ip/////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
 
 
 int mass_ip[1000];
@@ -79,11 +106,7 @@ int old_ssam_ip[1000];
 int max_mass_ip;
 int old_max_mass_ip;
 
-
-#define z 3
-int max_const = 1000;
-
-int binarysearch(int a)
+int pos_ip(int a)
 {
 	int low, high, middle;
 	low = 0;
@@ -96,28 +119,26 @@ int binarysearch(int a)
 		else if (a > old_mass_ip[middle])
 			low = middle + 1;
 		else
-			return middle;
+			return old_ssam_ip[middle];
 	}
-	return -1;
+	return 0;
 }
 
-//По массиву!!! и тоько
-int pos_ip(int a){
+//По массиву!!! и тоько (cv dsit)
+/*int pos_ip(int a){
 	for (int i = 0; i < old_max_mass_ip; i++){
 		if (old_mass_ip[i] == a)
 			return old_ssam_ip[i];
 	}
 	return 0;
-}
+}*/
 
-
-int keeek = 0;
 
 void load_ip(){
 	int mmmax = 0;
 	old_max_mass_ip = 0;
 	char sp[100];
-	sprintf(sp, "%d.txt", ++keeek);
+	sprintf(sp, "%d_ip.txt", ++keeek);
 	FILE *fi = fopen(sp, "r");
 	fscanf(fi, "%d", &old_max_mass_ip);
 	for (int i = 0; i < old_max_mass_ip; i++){
@@ -133,9 +154,10 @@ double baes_ip(){
 	for (int i = 0; i < max_mass_ip; i++){
 		int a = pos_ip(mass_ip[i]);
 		result += a*log(((double)(ssam_ip[i] + z)) / ((105) + z*max_const));
-		printf("! = %lf\n", result);
+		//printf("! = %lf\n", result);
 	}
 	printf("! = %lf\n", result);
+	return result;
 }
 
 /*double baes_ip2(){
@@ -197,8 +219,8 @@ void quickSort_ip(int left, int right)
 		quickSort_ip(pivot + 1, right);
 }
 
-void print_to_file(){
-	FILE *fi = fopen("1.txt", "w");
+void print_to_file_ip(){
+	FILE *fi = fopen("1_ip.txt", "w");
 	fprintf(fi, "%d\n", max_mass_ip);
 	for (int i = 0; i < max_mass_ip; i++){
 		fprintf(fi, "%d %d\n", mass_ip[i], ssam_ip[i]);
@@ -218,6 +240,604 @@ void push_ip(){
 }
 
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////my_ip/////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+int mass_my_ip[1000];
+int ssam_my_ip[1000];
+int old_mass_my_ip[1000];
+int old_ssam_my_ip[1000];
+int max_mass_my_ip;
+int old_max_mass_my_ip;
+
+int pos_my_ip(int a)
+{
+	int low, high, middle;
+	low = 0;
+	high = old_max_mass_my_ip - 1;
+	while (low <= high)
+	{
+		middle = (low + high) / 2;
+		if (a < old_mass_my_ip[middle])
+			high = middle - 1;
+		else if (a > old_mass_my_ip[middle])
+			low = middle + 1;
+		else
+			return old_ssam_my_ip[middle];
+	}
+	return 0;
+}
+
+
+void load_my_ip(){
+	int mmmax = 0;
+	old_max_mass_my_ip = 0;
+	char sp[100];
+	sprintf(sp, "%d_my_ip.txt", keeek);
+	FILE *fi = fopen(sp, "r");
+	fscanf(fi, "%d", &old_max_mass_my_ip);
+	for (int i = 0; i < old_max_mass_my_ip; i++){
+		fscanf(fi, "%d %d", &old_mass_my_ip[i], &old_ssam_my_ip[i]);
+		mmmax += old_ssam_my_ip[i];
+	}
+	printf("\n\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n%d\n\n", mmmax);
+	fclose(fi);
+}
+
+double baes_my_ip(){
+	double result = 0.0;
+	for (int i = 0; i < max_mass_my_ip; i++){
+		int a = pos_my_ip(mass_my_ip[i]);
+		result += a*log(((double)(ssam_my_ip[i] + z)) / ((105) + z*max_const));
+		//printf("! = %lf\n", result);
+	}
+	printf("! = %lf\n", result);
+	return result;
+}
+
+int correct_my_ip(struct packet * mu){
+	if (mu->my_ip == global->my_ip)
+		return 1;
+	else return 0;
+}
+
+void quickSort_my_ip(int left, int right)
+{
+	int pivot; // разрешающий элемент
+	int l_hold = left; //левая граница
+	int r_hold = right; // правая граница
+	pivot = mass_my_ip[left];
+	int pivot_help = ssam_my_ip[left];
+	while (left < right) // пока границы не сомкнутся
+	{
+		while ((mass_my_ip[right] >= pivot) && (left < right))
+			right--; // сдвигаем правую границу пока элемент [right] больше [pivot]
+		if (left != right) // если границы не сомкнулись
+		{
+			mass_my_ip[left] = mass_my_ip[right]; // перемещаем элемент [right] на место разрешающего
+			ssam_my_ip[left] = ssam_my_ip[right];
+			left++; // сдвигаем левую границу вправо 
+		}
+		while ((mass_my_ip[left] <= pivot) && (left < right))
+			left++; // сдвигаем левую границу пока элемент [left] меньше [pivot]
+		if (left != right) // если границы не сомкнулись
+		{
+			mass_my_ip[right] = mass_my_ip[left]; // перемещаем элемент [left] на место [right]
+			ssam_my_ip[right] = ssam_my_ip[left];
+			right--; // сдвигаем правую границу вправо 
+		}
+	}
+	mass_my_ip[left] = pivot; // ставим разрешающий элемент на место
+	ssam_my_ip[left] = pivot_help;
+	pivot = left;
+	left = l_hold;
+	right = r_hold;
+	if (left < pivot) // Рекурсивно вызываем сортировку для левой и правой части массива
+		quickSort_my_ip(left, pivot - 1);
+	if (right > pivot)
+		quickSort_my_ip(pivot + 1, right);
+}
+
+void print_to_file_my_ip(){
+	FILE *fi = fopen("1_my_ip.txt", "w");
+	fprintf(fi, "%d\n", max_mass_my_ip);
+	for (int i = 0; i < max_mass_my_ip; i++){
+		fprintf(fi, "%d %d\n", mass_my_ip[i], ssam_my_ip[i]);
+	}
+	fclose(fi);
+}
+
+void push_my_ip(){
+	for (int i = 0; i < max_mass_my_ip; i++)
+	if (correct_my_ip(&mass_my_ip[i])){
+		ssam_my_ip[i]++;
+		return;
+	}
+	mass_my_ip[max_mass_my_ip] = global->my_ip;
+	ssam_my_ip[max_mass_my_ip] = 1;
+	max_mass_my_ip++;
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////rr/////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+int mass_rr[1000];
+int ssam_rr[1000];
+int old_mass_rr[1000];
+int old_ssam_rr[1000];
+int max_mass_rr;
+int old_max_mass_rr;
+
+int pos_rr(int a)
+{
+	int low, high, middle;
+	low = 0;
+	high = old_max_mass_rr - 1;
+	while (low <= high)
+	{
+		middle = (low + high) / 2;
+		if (a < old_mass_rr[middle])
+			high = middle - 1;
+		else if (a > old_mass_rr[middle])
+			low = middle + 1;
+		else
+			return old_ssam_rr[middle];
+	}
+	return 0;
+}
+
+//По массиву!!! и тоько (cv dsit)
+/*int pos_rr(int a){
+for (int i = 0; i < old_max_mass_rr; i++){
+if (old_mass_rr[i] == a)
+return old_ssam_rr[i];
+}
+return 0;
+}*/
+
+
+void load_rr(){
+	int mmmax = 0;
+	old_max_mass_rr = 0;
+	char sp[100];
+	sprintf(sp, "%d_rr.txt", keeek);
+	FILE *fi = fopen(sp, "r");
+	fscanf(fi, "%d", &old_max_mass_rr);
+	for (int i = 0; i < old_max_mass_rr; i++){
+		fscanf(fi, "%d %d", &old_mass_rr[i], &old_ssam_rr[i]);
+		mmmax += old_ssam_rr[i];
+	}
+	printf("\n\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n%d\n\n", mmmax);
+	fclose(fi);
+}
+
+double baes_rr(){
+	double result = 0.0;
+	for (int i = 0; i < max_mass_rr; i++){
+		int a = pos_rr(mass_rr[i]);
+		result += a*log(((double)(ssam_rr[i] + z)) / ((105) + z*max_const));
+		//printf("! = %lf\n", result);
+	}
+	printf("! = %lf\n", result);
+	return result;
+}
+
+/*double baes_rr2(){
+double result = 0.0;
+struct db*now = start_rr;
+while (1){
+if (now->l){
+now
+}
+}
+for (int i = 0; i < max_mass_rr; i++){
+int a = pos_rr(mass_rr[i]);
+result += a*log(((double)(ssam_rr[i] + z)) / ((105) + z*max_const));
+printf("! = %lf\n", result);
+}
+printf("! = %lf\n", result);
+}*/
+
+int correct_rr(struct packet * mu){
+	if (mu->rr == global->rr)
+		return 1;
+	else return 0;
+}
+
+void quickSort_rr(int left, int right)
+{
+	int pivot; // разрешающий элемент
+	int l_hold = left; //левая граница
+	int r_hold = right; // правая граница
+	pivot = mass_rr[left];
+	int pivot_help = ssam_rr[left];
+	while (left < right) // пока границы не сомкнутся
+	{
+		while ((mass_rr[right] >= pivot) && (left < right))
+			right--; // сдвигаем правую границу пока элемент [right] больше [pivot]
+		if (left != right) // если границы не сомкнулись
+		{
+			mass_rr[left] = mass_rr[right]; // перемещаем элемент [right] на место разрешающего
+			ssam_rr[left] = ssam_rr[right];
+			left++; // сдвигаем левую границу вправо 
+		}
+		while ((mass_rr[left] <= pivot) && (left < right))
+			left++; // сдвигаем левую границу пока элемент [left] меньше [pivot]
+		if (left != right) // если границы не сомкнулись
+		{
+			mass_rr[right] = mass_rr[left]; // перемещаем элемент [left] на место [right]
+			ssam_rr[right] = ssam_rr[left];
+			right--; // сдвигаем правую границу вправо 
+		}
+	}
+	mass_rr[left] = pivot; // ставим разрешающий элемент на место
+	ssam_rr[left] = pivot_help;
+	pivot = left;
+	left = l_hold;
+	right = r_hold;
+	if (left < pivot) // Рекурсивно вызываем сортировку для левой и правой части массива
+		quickSort_rr(left, pivot - 1);
+	if (right > pivot)
+		quickSort_rr(pivot + 1, right);
+}
+
+void print_to_file_rr(){
+	FILE *fi = fopen("1_rr.txt", "w");
+	fprintf(fi, "%d\n", max_mass_rr);
+	for (int i = 0; i < max_mass_rr; i++){
+		fprintf(fi, "%d %d\n", mass_rr[i], ssam_rr[i]);
+	}
+	fclose(fi);
+}
+
+void push_rr(){
+	for (int i = 0; i < max_mass_rr; i++)
+	if (correct_rr(&mass_rr[i])){
+		ssam_rr[i]++;
+		return;
+	}
+	mass_rr[max_mass_rr] = global->rr;
+	ssam_rr[max_mass_rr] = 1;
+	max_mass_rr++;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////protocol//////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+int mass_protocol[1000];
+int ssam_protocol[1000];
+int old_mass_protocol[1000];
+int old_ssam_protocol[1000];
+int max_mass_protocol;
+int old_max_mass_protocol;
+
+int pos_protocol(int a)
+{
+	int low, high, middle;
+	low = 0;
+	high = old_max_mass_protocol - 1;
+	while (low <= high)
+	{
+		middle = (low + high) / 2;
+		if (a < old_mass_protocol[middle])
+			high = middle - 1;
+		else if (a > old_mass_protocol[middle])
+			low = middle + 1;
+		else
+			return old_ssam_protocol[middle];
+	}
+	return 0;
+}
+
+//По массиву!!! и тоько (cv dsit)
+/*int pos_protocol(int a){
+for (int i = 0; i < old_max_mass_protocol; i++){
+if (old_mass_protocol[i] == a)
+return old_ssam_protocol[i];
+}
+return 0;
+}*/
+
+
+void load_protocol(){
+	int mmmax = 0;
+	old_max_mass_protocol = 0;
+	char sp[100];
+	sprintf(sp, "%d_protocol.txt", keeek);
+	FILE *fi = fopen(sp, "r");
+	fscanf(fi, "%d", &old_max_mass_protocol);
+	for (int i = 0; i < old_max_mass_protocol; i++){
+		fscanf(fi, "%d %d", &old_mass_protocol[i], &old_ssam_protocol[i]);
+		mmmax += old_ssam_protocol[i];
+	}
+	printf("\n\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n%d\n\n", mmmax);
+	fclose(fi);
+}
+
+double baes_protocol(){
+	double result = 0.0;
+	for (int i = 0; i < max_mass_protocol; i++){
+		int a = pos_protocol(mass_protocol[i]);
+		result += a*log(((double)(ssam_protocol[i] + z)) / ((105) + z*max_const));
+		//printf("! = %lf\n", result);
+	}
+	printf("! = %lf\n", result);
+	return result;
+}
+
+/*double baes_protocol2(){
+double result = 0.0;
+struct db*now = start_protocol;
+while (1){
+if (now->l){
+now
+}
+}
+for (int i = 0; i < max_mass_protocol; i++){
+int a = pos_protocol(mass_protocol[i]);
+result += a*log(((double)(ssam_protocol[i] + z)) / ((105) + z*max_const));
+printf("! = %lf\n", result);
+}
+printf("! = %lf\n", result);
+}*/
+
+int coprotocolect_protocol(struct packet * mu){
+	if (mu->protocol == global->protocol)
+		return 1;
+	else return 0;
+}
+
+void quickSort_protocol(int left, int right)
+{
+	int pivot; // разрешающий элемент
+	int l_hold = left; //левая граница
+	int r_hold = right; // правая граница
+	pivot = mass_protocol[left];
+	int pivot_help = ssam_protocol[left];
+	while (left < right) // пока границы не сомкнутся
+	{
+		while ((mass_protocol[right] >= pivot) && (left < right))
+			right--; // сдвигаем правую границу пока элемент [right] больше [pivot]
+		if (left != right) // если границы не сомкнулись
+		{
+			mass_protocol[left] = mass_protocol[right]; // перемещаем элемент [right] на место разрешающего
+			ssam_protocol[left] = ssam_protocol[right];
+			left++; // сдвигаем левую границу вправо 
+		}
+		while ((mass_protocol[left] <= pivot) && (left < right))
+			left++; // сдвигаем левую границу пока элемент [left] меньше [pivot]
+		if (left != right) // если границы не сомкнулись
+		{
+			mass_protocol[right] = mass_protocol[left]; // перемещаем элемент [left] на место [right]
+			ssam_protocol[right] = ssam_protocol[left];
+			right--; // сдвигаем правую границу вправо 
+		}
+	}
+	mass_protocol[left] = pivot; // ставим разрешающий элемент на место
+	ssam_protocol[left] = pivot_help;
+	pivot = left;
+	left = l_hold;
+	right = r_hold;
+	if (left < pivot) // Рекурсивно вызываем сортировку для левой и правой части массива
+		quickSort_protocol(left, pivot - 1);
+	if (right > pivot)
+		quickSort_protocol(pivot + 1, right);
+}
+
+void print_to_file_protocol(){
+	FILE *fi = fopen("1_protocol.txt", "w");
+	fprintf(fi, "%d\n", max_mass_protocol);
+	for (int i = 0; i < max_mass_protocol; i++){
+		fprintf(fi, "%d %d\n", mass_protocol[i], ssam_protocol[i]);
+	}
+	fclose(fi);
+}
+
+void push_protocol(){
+	for (int i = 0; i < max_mass_protocol; i++)
+	if (coprotocolect_protocol(&mass_protocol[i])){
+		ssam_protocol[i]++;
+		return;
+	}
+	mass_protocol[max_mass_protocol] = global->protocol;
+	ssam_protocol[max_mass_protocol] = 1;
+	max_mass_protocol++;
+}
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////time////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+long long int mass_time[1000];
+long long int ssam_time[1000];
+long long int old_mass_time[1000];
+long long int old_ssam_time[1000];
+long long int max_mass_time;
+long long int old_max_mass_time;
+
+long long int pos_time(long long int a)
+{
+	long long int low, high, middle;
+	low = 0;
+	high = old_max_mass_time - 1;
+	while (low <= high)
+	{
+		middle = (low + high) / 2;
+		if (a < old_mass_time[middle])
+			high = middle - 1;
+		else if (a > old_mass_time[middle])
+			low = middle + 1;
+		else
+			return old_ssam_time[middle];
+	}
+	return 0;
+}
+
+void load_time(){
+	long long int mmmax = 0;
+	old_max_mass_time = 0;
+	char sp[100];
+	sprintf(sp, "%d_time.txt", keeek);
+	FILE *fi = fopen(sp, "r");
+	fscanf(fi, "%d", &old_max_mass_time);
+	for (int i = 0; i < old_max_mass_time; i++){
+		fscanf(fi, "%d %d", &old_mass_time[i], &old_ssam_time[i]);
+		mmmax += old_ssam_time[i];
+	}
+	printf("\n\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n%d\n\n", mmmax);
+	fclose(fi);
+}
+
+double baes_time(){
+	double result = 0.0;
+	for (int i = 0; i < max_mass_time; i++){
+		if (i&&(mass_time[i] - mass_time[i - 1])<10)
+			continue;
+		long long int a = pos_time(mass_time[i]);
+		result += a*log(((double)(ssam_time[i] + z)) / ((105) + z*max_const));
+		//printf("! = %lf\n", result);
+		/*if (i == 840)
+		{
+			printf("()\n");
+		}*/
+	}
+	printf("! = %lf\n", result);
+	return result;
+}
+
+
+long long int cotimeect_time(struct packet * mu){
+	if (mu->time == global->time)
+		return 1;
+	else return 0;
+}
+
+void quickSort_time(int left, int right)
+{
+	long long int pivot; // разрешающий элемент
+	int l_hold = left; //левая граница
+	int r_hold = right; // правая граница
+	pivot = mass_time[left];
+	long long int pivot_help = ssam_time[left];
+	while (left < right) // пока границы не сомкнутся
+	{
+		while ((mass_time[right] >= pivot) && (left < right))
+			right--; // сдвигаем правую границу пока элемент [right] больше [pivot]
+		if (left != right) // если границы не сомкнулись
+		{
+			mass_time[left] = mass_time[right]; // перемещаем элемент [right] на место разрешающего
+			ssam_time[left] = ssam_time[right];
+			left++; // сдвигаем левую границу вправо 
+		}
+		while ((mass_time[left] <= pivot) && (left < right))
+			left++; // сдвигаем левую границу пока элемент [left] меньше [pivot]
+		if (left != right) // если границы не сомкнулись
+		{
+			mass_time[right] = mass_time[left]; // перемещаем элемент [left] на место [right]
+			ssam_time[right] = ssam_time[left];
+			right--; // сдвигаем правую границу вправо 
+		}
+	}
+	mass_time[left] = pivot; // ставим разрешающий элемент на место
+	ssam_time[left] = pivot_help;
+	pivot = left;
+	left = l_hold;
+	right = r_hold;
+	if (left < pivot) // Рекурсивно вызываем сортировку для левой и правой части массива
+		quickSort_time(left, pivot - 1);
+	if (right > pivot)
+		quickSort_time(pivot + 1, right);
+}
+
+void print_to_file_time(){
+	FILE *fi = fopen("1_time.txt", "w");
+	fprintf(fi, "%lld\n", max_mass_time);
+	for (int i = 0; i < max_mass_time; i++){
+		fprintf(fi, "%lld %lld\n", mass_time[i], ssam_time[i]);
+	}
+	fclose(fi);
+}
+
+void push_time(){
+	for (int i = 0; i < max_mass_time; i++)
+	if (cotimeect_time(&mass_time[i])){
+		ssam_time[i]++;
+		return;
+	}
+	mass_time[max_mass_time] = global->time;
+	ssam_time[max_mass_time] = 1;
+	max_mass_time++;
+}
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////
 
 void read_max_count(){
 	FILE *fi = fopen("all.txt", "r");
@@ -259,6 +879,7 @@ void parse_time(char *s){
 	int i = 0;
 	int se = 0;
 	int ms = 0;
+	int flag_point = 0;
 	global->time = 0;
 	for (i = 0; i < strlen(s); i++){
 		switch (s[i])
@@ -272,8 +893,14 @@ void parse_time(char *s){
 					global->time = (global->time * 60 + se)*1000000;
 			break;
 		}
+		case '.':
+		{
+					global->time = (global->time * 60 + se) * 1000000;
+					flag_point = 1;
+					break;
+		}
 		default:
-			if (i>8)
+			if (i>8 || flag_point)
 				ms = ms * 10 + s[i] - '0';
 			else se = se * 10 + s[i] - '0';
 			break;
@@ -325,6 +952,10 @@ int parse(){
 	global->rr = atoi(s + i_start);
 //	print_packet(global);
 	push_ip();
+	push_my_ip();
+	push_rr();
+	push_protocol();
+	push_time();
 	return 1;
 }
 
@@ -336,21 +967,42 @@ int main(){
 	while (parse()){
 		
 	}
-	for (int i = 0; i < max_mass_ip; i++)
-		printf("%d) %d\n", mass_ip[i], ssam_ip[i]);
+	for (int i = max_mass_time; i > 0; i--)
+		mass_time[i] -= mass_time[i - 1];
+	mass_time[0] = 0;
+	/*for (int i = 0; i < max_mass_time; i++)
+		printf("%lld) %lld\n", mass_time[i], ssam_time[i]);
+	system("pause");*/
 	quickSort_ip(0, max_mass_ip-1);
-	for (int i = 0; i < max_mass_ip; i++)
-		printf("%d) %d\n", mass_ip[i], ssam_ip[i]);
+	quickSort_my_ip(0, max_mass_my_ip - 1);
+	quickSort_rr(0, max_mass_rr - 1);
+	quickSort_protocol(0, max_mass_protocol - 1);
+	quickSort_time(0, max_mass_time - 1);
+	/*for (int i = 0; i < max_mass_time; i++)
+		printf("%lld) %lld\n", mass_time[i], ssam_time[i]);
+	system("pause");*/
 	int super_max = 0;
 	for (int i = 0; i < max_mass_ip; i++)
 		super_max += ssam_ip[i];
 	printf("\n\n#############################\n%d\n\n", super_max);
-	for (int i = 0; i < 3; i++){
+	for (int i = 0; i < 2; i++){
 		load_ip();
-		printf("%ld\n", baes_ip());
+		printf("ip:%lf\n", baes_ip());
+		load_my_ip();
+		printf("my_ip:%lf\n", baes_my_ip());
+		load_rr();
+		printf("rr:%lf\n", baes_rr());
+		load_protocol();
+		printf("pro:%lf\n", baes_protocol());
+		load_time();
+		printf("time:%lf\n", baes_time());
 	}
 	//printf("\n%lld\n", global->time);
-	//print_to_file_ip();
+	/*print_to_file_ip();
+	print_to_file_my_ip();
+	print_to_file_rr();
+	print_to_file_protocol();
+	print_to_file_time();*/
 	//printf("%ld\n", baes());
 	//load();
 	//printf("%ld\n", baes());
