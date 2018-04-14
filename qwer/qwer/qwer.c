@@ -107,11 +107,11 @@ int keeek = 0;
 
 
 
-
-int mass_ip[1000]; //Массив хранит текущие значения вариантов ip
-int ssam_ip[1000]; //Хранит количество вариантов массива выше
-int old_mass_ip[1000]; //Тоже самое, хранит загружаемую версию
-int old_ssam_ip[1000]; //Тоже самое
+int size_mass_ip;//Полный размер массива
+int *mass_ip; //Массив хранит текущие значения вариантов ip
+int *ssam_ip; //Хранит количество вариантов массива выше
+int *old_mass_ip; //Тоже самое, хранит загружаемую версию
+int *old_ssam_ip; //Тоже самое
 int max_mass_ip; //Размер массива для ip адресов
 int old_max_mass_ip; //Размер массива для подгружаемых данных
 
@@ -144,6 +144,8 @@ void load_ip(){
 	sprintf(sp, "%d_ip.txt", ++keeek);
 	FILE *fi = fopen(sp, "r");
 	fscanf(fi, "%d", &old_max_mass_ip);
+	old_mass_ip = calloc(sizeof(int), old_max_mass_ip);
+	old_ssam_ip = calloc(sizeof(int), old_max_mass_ip);
 	for (int i = 0; i < old_max_mass_ip; i++){
 		fscanf(fi, "%d %d", &old_mass_ip[i], &old_ssam_ip[i]);
 		mmmax += old_ssam_ip[i];
@@ -229,6 +231,11 @@ void push_ip(){
 	mass_ip[max_mass_ip] = global->ip;
 	ssam_ip[max_mass_ip] = 1;
 	max_mass_ip++;
+	if (max_mass_ip % 1000 == 0){
+		size_mass_ip += 1000;
+		mass_ip = realloc(mass_ip, (size_mass_ip));
+		ssam_ip = realloc(ssam_ip, (size_mass_ip));
+	}
 }
 
 
@@ -242,11 +249,11 @@ void push_ip(){
 
 
 
-
-int mass_my_ip[1000];
-int ssam_my_ip[1000];
-int old_mass_my_ip[1000];
-int old_ssam_my_ip[1000];
+int size_mass_my_ip;
+int *mass_my_ip;
+int *ssam_my_ip;
+int *old_mass_my_ip;
+int *old_ssam_my_ip;
 int max_mass_my_ip;
 int old_max_mass_my_ip;
 
@@ -276,6 +283,8 @@ void load_my_ip(){
 	sprintf(sp, "%d_my_ip.txt", keeek);
 	FILE *fi = fopen(sp, "r");
 	fscanf(fi, "%d", &old_max_mass_my_ip);
+	old_mass_my_ip = calloc(sizeof(int), old_max_mass_my_ip);
+	old_ssam_my_ip = calloc(sizeof(int), old_max_mass_my_ip);
 	for (int i = 0; i < old_max_mass_my_ip; i++){
 		fscanf(fi, "%d %d", &old_mass_my_ip[i], &old_ssam_my_ip[i]);
 		mmmax += old_ssam_my_ip[i];
@@ -356,6 +365,11 @@ void push_my_ip(){
 	mass_my_ip[max_mass_my_ip] = global->my_ip;
 	ssam_my_ip[max_mass_my_ip] = 1;
 	max_mass_my_ip++;
+	if (max_mass_my_ip % 1000 == 0){
+		size_mass_my_ip += 1000;
+		mass_my_ip = realloc(mass_ip, (size_mass_my_ip));
+		ssam_my_ip = realloc(ssam_ip, (size_mass_my_ip));
+	}
 }
 
 
@@ -377,11 +391,11 @@ void push_my_ip(){
 
 
 
-
-int mass_rr[1000];
-int ssam_rr[1000];
-int old_mass_rr[1000];
-int old_ssam_rr[1000];
+int size_mass_rr;
+int *mass_rr;
+int *ssam_rr;
+int *old_mass_rr;
+int *old_ssam_rr;
 int max_mass_rr;
 int old_max_mass_rr;
 
@@ -411,6 +425,8 @@ void load_rr(){
 	sprintf(sp, "%d_rr.txt", keeek);
 	FILE *fi = fopen(sp, "r");
 	fscanf(fi, "%d", &old_max_mass_rr);
+	old_mass_rr = calloc(sizeof(int), old_max_mass_rr);
+	old_ssam_rr = calloc(sizeof(int), old_max_mass_rr);
 	for (int i = 0; i < old_max_mass_rr; i++){
 		fscanf(fi, "%d %d", &old_mass_rr[i], &old_ssam_rr[i]);
 		mmmax += old_ssam_rr[i];
@@ -492,6 +508,11 @@ void push_rr(){
 	mass_rr[max_mass_rr] = global->rr;
 	ssam_rr[max_mass_rr] = 1;
 	max_mass_rr++;
+	if (max_mass_rr % 1000 == 0){
+		size_mass_rr += 1000;
+		mass_rr = realloc(mass_rr, (size_mass_rr));
+		ssam_rr = realloc(ssam_rr, (size_mass_rr));
+	}
 }
 
 
@@ -512,11 +533,11 @@ void push_rr(){
 
 
 
-
-int mass_protocol[1000];
-int ssam_protocol[1000];
-int old_mass_protocol[1000];
-int old_ssam_protocol[1000];
+int size_mass_protocol;
+int *mass_protocol;
+int *ssam_protocol;
+int *old_mass_protocol;
+int *old_ssam_protocol;
 int max_mass_protocol;
 int old_max_mass_protocol;
 
@@ -547,6 +568,8 @@ void load_protocol(){
 	sprintf(sp, "%d_protocol.txt", keeek);
 	FILE *fi = fopen(sp, "r");
 	fscanf(fi, "%d", &old_max_mass_protocol);
+	old_mass_protocol = calloc(sizeof(int), old_max_mass_protocol);
+	old_ssam_protocol = calloc(sizeof(int), old_max_mass_protocol);
 	for (int i = 0; i < old_max_mass_protocol; i++){
 		fscanf(fi, "%d %d", &old_mass_protocol[i], &old_ssam_protocol[i]);
 		mmmax += old_ssam_protocol[i];
@@ -628,6 +651,11 @@ void push_protocol(){
 	mass_protocol[max_mass_protocol] = global->protocol;
 	ssam_protocol[max_mass_protocol] = 1;
 	max_mass_protocol++;
+	if (max_mass_protocol % 1000 == 0){
+		size_mass_protocol += 1000;
+		mass_protocol = realloc(mass_protocol, (size_mass_protocol));
+		ssam_protocol = realloc(ssam_protocol, (size_mass_protocol));
+	}
 }
 
 
@@ -650,11 +678,11 @@ void push_protocol(){
 
 
 
-
-long long int mass_time[1000];
-long long int ssam_time[1000];
-long long int old_mass_time[1000];
-long long int old_ssam_time[1000];
+long long int size_mass_time;
+long long int *mass_time;
+long long int *ssam_time;
+long long int *old_mass_time;
+long long int *old_ssam_time;
 long long int max_mass_time;
 long long int old_max_mass_time;
 
@@ -682,9 +710,11 @@ void load_time(){
 	char sp[100];
 	sprintf(sp, "%d_time.txt", keeek);
 	FILE *fi = fopen(sp, "r");
-	fscanf(fi, "%d", &old_max_mass_time);
+	fscanf(fi, "%ld", &old_max_mass_time);
+	old_mass_time = calloc(sizeof(long long int), old_max_mass_time);
+	old_ssam_time = calloc(sizeof(long long int), old_max_mass_time);
 	for (int i = 0; i < old_max_mass_time; i++){
-		fscanf(fi, "%d %d", &old_mass_time[i], &old_ssam_time[i]);
+		fscanf(fi, "%ld %ld", &old_mass_time[i], &old_ssam_time[i]);
 		mmmax += old_ssam_time[i];
 	}
 	//printf("\n\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n%d\n\n", mmmax);
@@ -770,6 +800,11 @@ void push_time(){
 	mass_time[max_mass_time] = global->time;
 	ssam_time[max_mass_time] = 1;
 	max_mass_time++;
+	if (max_mass_time % 1000 == 0){
+		size_mass_time += 1000;
+		mass_time = realloc(mass_time, (size_mass_time));
+		ssam_time = realloc(ssam_time, (size_mass_time));
+	}
 }
 
 
@@ -905,7 +940,62 @@ int parse(){
 	return 1;
 }
 
+void init(){
+	size_mass_ip = 1000;
+	mass_ip = calloc(sizeof(int), 1000);
+	ssam_ip = calloc(sizeof(int), 1000);
+	size_mass_my_ip = 1000;
+	mass_my_ip = calloc(sizeof(int), 1000);
+	ssam_my_ip = calloc(sizeof(int), 1000);
+	size_mass_rr = 1000;
+	mass_rr = calloc(sizeof(int), 1000);
+	ssam_rr = calloc(sizeof(int), 1000);
+	size_mass_protocol = 1000;
+	mass_protocol = calloc(sizeof(int), 1000);
+	ssam_protocol = calloc(sizeof(int), 1000);
+	size_mass_time = 1000;
+	mass_time = calloc(sizeof(long long int), 1000);
+	ssam_time = calloc(sizeof(long long int), 1000);
+}
+
+void deinit_after_file(){
+	free(old_mass_ip);
+	free(old_ssam_ip);
+	free(old_mass_my_ip);
+	free(old_ssam_my_ip);
+	free(old_mass_rr);
+	free(old_ssam_rr);
+	free(old_mass_protocol);
+	free(old_ssam_protocol);
+	free(old_mass_time);
+	free(old_ssam_time);
+}
+
+void deinit(){
+	size_mass_ip = 0;
+	max_mass_ip = 0;
+	free(mass_ip);
+	free(ssam_ip);
+	size_mass_my_ip = 0;
+	max_mass_my_ip = 0;
+	free(mass_my_ip);
+	free(ssam_my_ip);
+	size_mass_rr = 0;
+	max_mass_rr = 0;
+	free(mass_rr);
+	free(ssam_rr);
+	size_mass_protocol = 0;
+	max_mass_protocol = 0;
+	free(mass_protocol);
+	free(ssam_protocol);
+	size_mass_time = 0;
+	max_mass_time = 0;
+	free(mass_time);
+	free(ssam_time);
+}
+
 int main(){
+	init();
 	read_max_count();
 	global = (struct packet*)malloc(sizeof(struct packet));
 	zlo = fopen("test", "rb");
@@ -962,7 +1052,14 @@ int main(){
 		load_time();
 		soda[4][i] = baes_time();
 		//printf("time:%lf\n", soda[4][i]);
+
+		deinit_after_file();
+
 	}
+
+	//Очистка памяти
+	deinit();
+
 	//printf("\n%lld\n", global->time);
 	printf("\nNaive bayes result:\n");
 	for (int i = 0; i < 6; i++){
