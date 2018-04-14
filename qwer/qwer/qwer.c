@@ -10,6 +10,12 @@
 
 FILE *zlo;
 
+int to_ip = 143;
+int to_my_ip = 167;
+int to_rr = 787;
+int to_protocol = 80;
+int to_time=2083;
+
 char s[1000];
 
 //Структура одного пакета
@@ -22,9 +28,10 @@ struct packet{
 	int protocol;
 };
 
-
+//Отвечает за указатель на текущюю структуру
 struct packet *global;
 
+//Попытка создать db дерево
 struct db{
 	struct db*l;
 	struct db*r;
@@ -70,7 +77,8 @@ void push_ip2(int a){
 	return now;
 }
 
-#define z 3
+//
+#define z 4
 int max_const = 1000;
 int keeek = 0;
 
@@ -92,20 +100,23 @@ int keeek = 0;
 
 
 
+/*ip, my_time, rr, protocol, time 
+	имеют схожий синтаксис и по сути копируют себя*/
 
 
 
 
 
 
+int mass_ip[1000]; //Массив хранит текущие значения вариантов ip
+int ssam_ip[1000]; //Хранит количество вариантов массива выше
+int old_mass_ip[1000]; //Тоже самое, хранит загружаемую версию
+int old_ssam_ip[1000]; //Тоже самое
+int max_mass_ip; //Размер массива для ip адресов
+int old_max_mass_ip; //Размер массива для подгружаемых данных
 
-int mass_ip[1000];
-int ssam_ip[1000];
-int old_mass_ip[1000];
-int old_ssam_ip[1000];
-int max_mass_ip;
-int old_max_mass_ip;
-
+//Поиск значения ip в подгруженном массиве
+//Бинарный поиск
 int pos_ip(int a)
 {
 	int low, high, middle;
@@ -124,16 +135,8 @@ int pos_ip(int a)
 	return 0;
 }
 
-//По массиву!!! и тоько (cv dsit)
-/*int pos_ip(int a){
-	for (int i = 0; i < old_max_mass_ip; i++){
-		if (old_mass_ip[i] == a)
-			return old_ssam_ip[i];
-	}
-	return 0;
-}*/
-
-
+//Загружает указанный файл и смотрит от туда ip и их количество
+// (зранее обработанный пользователь)
 void load_ip(){
 	int mmmax = 0;
 	old_max_mass_ip = 0;
@@ -145,43 +148,30 @@ void load_ip(){
 		fscanf(fi, "%d %d", &old_mass_ip[i], &old_ssam_ip[i]);
 		mmmax += old_ssam_ip[i];
 	}
-	printf("\n\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n%d\n\n", mmmax);
+	printf("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\t%d\n", mmmax);
 	fclose(fi);
 }
 
+//Возвращает коэфициент баеса
 double baes_ip(){
 	double result = 0.0;
 	for (int i = 0; i < max_mass_ip; i++){
 		int a = pos_ip(mass_ip[i]);
-		result += a*log(((double)(ssam_ip[i] + z)) / ((105) + z*max_const));
+		result += a*log(((double)(ssam_ip[i] + z)) / ((to_ip)+z*max_const));
 		//printf("! = %lf\n", result);
 	}
 	printf("! = %lf\n", result);
 	return result;
 }
 
-/*double baes_ip2(){
-	double result = 0.0;
-	struct db*now = start_ip;
-	while (1){
-		if (now->l){
-			now
-		}
-	}
-	for (int i = 0; i < max_mass_ip; i++){
-		int a = pos_ip(mass_ip[i]);
-		result += a*log(((double)(ssam_ip[i] + z)) / ((105) + z*max_const));
-		printf("! = %lf\n", result);
-	}
-	printf("! = %lf\n", result);
-}*/
-
+//Определяет подходящий ли ip аддресс
 int correct_ip(struct packet * mu){
 	if (mu->ip == global->ip)
 		return 1;
 	else return 0;
 }
 
+//Сортировка массива после обработки
 void quickSort_ip(int left, int right)
 {
 	int pivot; // разрешающий элемент
@@ -219,6 +209,7 @@ void quickSort_ip(int left, int right)
 		quickSort_ip(pivot + 1, right);
 }
 
+//Выводит в файл текущюю конфигурацию
 void print_to_file_ip(){
 	FILE *fi = fopen("1_ip.txt", "w");
 	fprintf(fi, "%d\n", max_mass_ip);
@@ -228,6 +219,7 @@ void print_to_file_ip(){
 	fclose(fi);
 }
 
+//Поместить ip-адресс в нашу базу
 void push_ip(){
 	for (int i = 0; i < max_mass_ip;i++)
 	if (correct_ip(&mass_ip[i])){
@@ -296,7 +288,7 @@ double baes_my_ip(){
 	double result = 0.0;
 	for (int i = 0; i < max_mass_my_ip; i++){
 		int a = pos_my_ip(mass_my_ip[i]);
-		result += a*log(((double)(ssam_my_ip[i] + z)) / ((105) + z*max_const));
+		result += a*log(((double)(ssam_my_ip[i] + z)) / ((to_my_ip)+z*max_const));
 		//printf("! = %lf\n", result);
 	}
 	printf("! = %lf\n", result);
@@ -440,28 +432,13 @@ double baes_rr(){
 	double result = 0.0;
 	for (int i = 0; i < max_mass_rr; i++){
 		int a = pos_rr(mass_rr[i]);
-		result += a*log(((double)(ssam_rr[i] + z)) / ((105) + z*max_const));
+		result += a*log(((double)(ssam_rr[i] + z)) / ((to_rr)+z*max_const));
 		//printf("! = %lf\n", result);
 	}
 	printf("! = %lf\n", result);
 	return result;
 }
 
-/*double baes_rr2(){
-double result = 0.0;
-struct db*now = start_rr;
-while (1){
-if (now->l){
-now
-}
-}
-for (int i = 0; i < max_mass_rr; i++){
-int a = pos_rr(mass_rr[i]);
-result += a*log(((double)(ssam_rr[i] + z)) / ((105) + z*max_const));
-printf("! = %lf\n", result);
-}
-printf("! = %lf\n", result);
-}*/
 
 int correct_rr(struct packet * mu){
 	if (mu->rr == global->rr)
@@ -599,28 +576,13 @@ double baes_protocol(){
 	double result = 0.0;
 	for (int i = 0; i < max_mass_protocol; i++){
 		int a = pos_protocol(mass_protocol[i]);
-		result += a*log(((double)(ssam_protocol[i] + z)) / ((105) + z*max_const));
+		result += a*log(((double)(ssam_protocol[i] + z)) / ((to_protocol)+z*max_const));
 		//printf("! = %lf\n", result);
 	}
 	printf("! = %lf\n", result);
 	return result;
 }
 
-/*double baes_protocol2(){
-double result = 0.0;
-struct db*now = start_protocol;
-while (1){
-if (now->l){
-now
-}
-}
-for (int i = 0; i < max_mass_protocol; i++){
-int a = pos_protocol(mass_protocol[i]);
-result += a*log(((double)(ssam_protocol[i] + z)) / ((105) + z*max_const));
-printf("! = %lf\n", result);
-}
-printf("! = %lf\n", result);
-}*/
 
 int coprotocolect_protocol(struct packet * mu){
 	if (mu->protocol == global->protocol)
@@ -752,7 +714,7 @@ double baes_time(){
 		if (i&&(mass_time[i] - mass_time[i - 1])<10)
 			continue;
 		long long int a = pos_time(mass_time[i]);
-		result += a*log(((double)(ssam_time[i] + z)) / ((105) + z*max_const));
+		result += a*log(((double)(ssam_time[i] + z)) / ((to_time)+z*max_const));
 		//printf("! = %lf\n", result);
 		/*if (i == 840)
 		{
@@ -839,13 +801,14 @@ void push_time(){
 
 //////////////////////////////////////////////////////////////////////////////////////
 
+//Чтение суммированного значения
 void read_max_count(){
 	FILE *fi = fopen("all.txt", "r");
 	fscanf(fi, "%d", &max_const);
 	fclose(fi);
 }
 
-//Начальные символы
+//Начальные символы (убирает)
 void start_search(){
 	fgets(s, sizeof(s), zlo);
 	//fgets(s, sizeof(s), zlo);
@@ -966,13 +929,16 @@ int main(){
 	start_search();
 	while (parse()){
 		
-	}
+	}//Доп операция над временем
 	for (int i = max_mass_time; i > 0; i--)
 		mass_time[i] -= mass_time[i - 1];
 	mass_time[0] = 0;
 	/*for (int i = 0; i < max_mass_time; i++)
 		printf("%lld) %lld\n", mass_time[i], ssam_time[i]);
 	system("pause");*/
+
+	//Сортировка полученных данных
+
 	quickSort_ip(0, max_mass_ip-1);
 	quickSort_my_ip(0, max_mass_my_ip - 1);
 	quickSort_rr(0, max_mass_rr - 1);
@@ -981,31 +947,95 @@ int main(){
 	/*for (int i = 0; i < max_mass_time; i++)
 		printf("%lld) %lld\n", mass_time[i], ssam_time[i]);
 	system("pause");*/
+
+	//Значения
 	int super_max = 0;
 	for (int i = 0; i < max_mass_ip; i++)
 		super_max += ssam_ip[i];
-	printf("\n\n#############################\n%d\n\n", super_max);
-	for (int i = 0; i < 2; i++){
+	printf("#############################\t%d\n", super_max);
+	printf("ip: %d\n", max_mass_ip);
+	printf("my_ip: %d\n", max_mass_my_ip);
+	printf("rr: %d\n", max_mass_rr);
+	printf("protocol: %d\n", max_mass_protocol);
+	printf("time: %lld\n", max_mass_time);
+
+	//Проверка
+	
+	double soda[5][6];
+
+	for (int i = 0; i < 6; i++){
 		load_ip();
-		printf("ip:%lf\n", baes_ip());
+		soda[0][i] = baes_ip();
+		printf("ip:%lf\n", soda[0][i]);
 		load_my_ip();
-		printf("my_ip:%lf\n", baes_my_ip());
+		soda[1][i] = baes_my_ip();
+		printf("my_ip:%lf\n", soda[1][i]);
 		load_rr();
-		printf("rr:%lf\n", baes_rr());
+		soda[2][i] = baes_rr();
+		printf("rr:%lf\n", soda[2][i]);
 		load_protocol();
-		printf("pro:%lf\n", baes_protocol());
+		soda[3][i] = baes_protocol();
+		printf("pro:%lf\n", soda[3][i]);
 		load_time();
-		printf("time:%lf\n", baes_time());
+		soda[4][i] = baes_time();
+		printf("time:%lf\n", soda[4][i]);
 	}
 	//printf("\n%lld\n", global->time);
-	/*print_to_file_ip();
+
+	for (int i = 0; i < 6; i++){
+		for (int u = 0; u < 5; u++)
+			printf("%lf\t", soda[u][i]);
+		printf("\n");
+	}
+
+	double proc[5];
+	for (int i = 0; i < 6; i++)
+		proc[i] = 0;
+	for (int i = 0; i < 6; i++){
+		for (int u = 0; u < 5; u++)
+			proc[u] += soda[u][i];
+	}
+	printf("\n\n");
+	for (int i = 0; i < 5; i++)
+		printf("%lf\n", proc[i]);
+
+	for (int i = 0; i < 6; i++){
+		for (int u = 0; u < 5; u++)
+			printf("%lf\t", fabs(soda[u][i]/proc[u]*100));
+		printf("\n");
+	}
+
+	double maxim[6];
+	for (int i = 0; i < 6; i++){
+		maxim[i] = 0;
+		for (int u = 0; u < 5; u++)
+			maxim[i] += soda[u][i] / proc[u];
+	}
+
+	for (int i = 0; i < 6; i++)
+		printf("%lf\n", maxim[i]);
+
+	int rm = 0;
+	double rmr = maxim[0];
+	for (int i = 1; i < 6; i++)
+	if (maxim[i]>rmr){
+		rmr = maxim[i];
+		rm = i;
+	}
+	printf("User %d\n", rm + 1);
+
+	//Загрузка данных в тестовые файлы
+	/*
+	print_to_file_ip();
 	print_to_file_my_ip();
 	print_to_file_rr();
 	print_to_file_protocol();
 	print_to_file_time();*/
+
 	//printf("%ld\n", baes());
 	//load();
 	//printf("%ld\n", baes());
 	fclose(zlo);
+	printf("%d\n", sizeof(struct packet));
 }
 

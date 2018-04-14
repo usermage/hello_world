@@ -1,22 +1,22 @@
-﻿Сборка начата 14.04.2018 18:23:11.
+﻿Сборка начата 14.04.2018 20:51:40.
      1>Проект "C:\Users\Buka\qwer\qwer\qwer.vcxproj" в узле 2 (целевые объекты Build).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /Od /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Release\qwer.pch" /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt qwer.c
          qwer.c
-     1>qwer.c(58): warning C4047: =: "db *" отличается по уровням косвенного обращения от "db *(__cdecl *)()"
-     1>qwer.c(63): warning C4098: push_ip2: функция типа "void", возвращающая значение
+     1>qwer.c(65): warning C4047: =: "db *" отличается по уровням косвенного обращения от "db *(__cdecl *)()"
      1>qwer.c(70): warning C4098: push_ip2: функция типа "void", возвращающая значение
-     1>qwer.c(233): warning C4133: функция: несовместимые типы - из "int *" в "packet *"
-     1>qwer.c(360): warning C4133: функция: несовместимые типы - из "int *" в "packet *"
-     1>qwer.c(520): warning C4133: функция: несовместимые типы - из "int *" в "packet *"
-     1>qwer.c(679): warning C4133: функция: несовместимые типы - из "int *" в "packet *"
-     1>qwer.c(805): warning C4244: функция: преобразование "__int64" в "int", возможна потеря данных
-     1>qwer.c(807): warning C4244: функция: преобразование "__int64" в "int", возможна потеря данных
-     1>qwer.c(821): warning C4133: функция: несовместимые типы - из "__int64 *" в "packet *"
-     1>qwer.c(884): warning C4018: <: несоответствие типов со знаком и без знака
-     1>qwer.c(950): warning C4013: get_bis_type: нет определения; предполагается "extern" с возвратом типа "int"
-     1>qwer.c(970): warning C4244: инициализация: преобразование "__int64" в "int", возможна потеря данных
-     1>qwer.c(980): warning C4244: функция: преобразование "__int64" в "int", возможна потеря данных
+     1>qwer.c(77): warning C4098: push_ip2: функция типа "void", возвращающая значение
+     1>qwer.c(225): warning C4133: функция: несовместимые типы - из "int *" в "packet *"
+     1>qwer.c(352): warning C4133: функция: несовместимые типы - из "int *" в "packet *"
+     1>qwer.c(497): warning C4133: функция: несовместимые типы - из "int *" в "packet *"
+     1>qwer.c(641): warning C4133: функция: несовместимые типы - из "int *" в "packet *"
+     1>qwer.c(767): warning C4244: функция: преобразование "__int64" в "int", возможна потеря данных
+     1>qwer.c(769): warning C4244: функция: преобразование "__int64" в "int", возможна потеря данных
+     1>qwer.c(783): warning C4133: функция: несовместимые типы - из "__int64 *" в "packet *"
+     1>qwer.c(847): warning C4018: <: несоответствие типов со знаком и без знака
+     1>qwer.c(913): warning C4013: get_bis_type: нет определения; предполагается "extern" с возвратом типа "int"
+     1>qwer.c(933): warning C4244: инициализация: преобразование "__int64" в "int", возможна потеря данных
+     1>qwer.c(946): warning C4244: функция: преобразование "__int64" в "int", возможна потеря данных
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Buka\qwer\Release\qwer.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Buka\qwer\Release\qwer.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Buka\qwer\Release\qwer.lib" /MACHINE:X86 /SAFESEH Release\lin_s.obj
          Release\qwer.obj
@@ -28,4 +28,4 @@
 
 Сборка успешно завершена.
 
-Затраченное время: 00:00:00.57
+Затраченное время: 00:00:00.46
