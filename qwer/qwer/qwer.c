@@ -22,7 +22,55 @@ struct packet{
 	int protocol;
 };
 
+
 struct packet *global;
+
+struct db{
+	struct db*l;
+	struct db*r;
+	struct db*papa;
+	int mass;
+	int ssam;
+};
+
+struct db*start_ip;
+
+struct db* new_db_ip(){
+	return (struct db*)malloc(sizeof(struct db));
+}
+
+void push_ip2(int a){
+	struct db*now = start_ip;
+	if (!now){
+		now = new_db_ip();
+		now->l = now->r = now->papa = 0;
+		now->ssam = 1;
+		now->mass = a;
+		start_ip = now;
+		return;
+	}
+	while (now->mass != a){
+		if ((now->mass > a && !now->r) || (now->mass < a && !now->l)){
+			struct db*help = now;
+			if (help->mass>a)
+				help->r = now;
+			else help->l = now;
+			now = new_db_ip;
+			now->mass = a;
+			now->ssam = 1;
+			now->papa = help;
+			now->l = now->r = 0;
+			return now;
+		}
+		if (now->mass > a)
+			now = now->r;
+		else now = now->l;
+	}
+	now->ssam++;
+	return now;
+}
+
+
 
 int mass_ip[1000];
 int ssam_ip[1000];
@@ -31,11 +79,29 @@ int old_ssam_ip[1000];
 int max_mass_ip;
 int old_max_mass_ip;
 
-int pop();
 
 #define z 3
 int max_const = 1000;
 
+int binarysearch(int a)
+{
+	int low, high, middle;
+	low = 0;
+	high = old_max_mass_ip - 1;
+	while (low <= high)
+	{
+		middle = (low + high) / 2;
+		if (a < old_mass_ip[middle])
+			high = middle - 1;
+		else if (a > old_mass_ip[middle])
+			low = middle + 1;
+		else
+			return middle;
+	}
+	return -1;
+}
+
+//По массиву!!! и тоько
 int pos_ip(int a){
 	for (int i = 0; i < old_max_mass_ip; i++){
 		if (old_mass_ip[i] == a)
@@ -44,9 +110,10 @@ int pos_ip(int a){
 	return 0;
 }
 
+
 int keeek = 0;
 
-void load(){
+void load_ip(){
 	int mmmax = 0;
 	old_max_mass_ip = 0;
 	char sp[100];
@@ -61,7 +128,7 @@ void load(){
 	fclose(fi);
 }
 
-double baes(){
+double baes_ip(){
 	double result = 0.0;
 	for (int i = 0; i < max_mass_ip; i++){
 		int a = pos_ip(mass_ip[i]);
@@ -71,13 +138,29 @@ double baes(){
 	printf("! = %lf\n", result);
 }
 
+/*double baes_ip2(){
+	double result = 0.0;
+	struct db*now = start_ip;
+	while (1){
+		if (now->l){
+			now
+		}
+	}
+	for (int i = 0; i < max_mass_ip; i++){
+		int a = pos_ip(mass_ip[i]);
+		result += a*log(((double)(ssam_ip[i] + z)) / ((105) + z*max_const));
+		printf("! = %lf\n", result);
+	}
+	printf("! = %lf\n", result);
+}*/
+
 int correct_ip(struct packet * mu){
 	if (mu->ip == global->ip)
 		return 1;
 	else return 0;
 }
 
-void quickSort(int left, int right)
+void quickSort_ip(int left, int right)
 {
 	int pivot; // разрешающий элемент
 	int l_hold = left; //левая граница
@@ -109,9 +192,9 @@ void quickSort(int left, int right)
 	left = l_hold;
 	right = r_hold;
 	if (left < pivot) // Рекурсивно вызываем сортировку для левой и правой части массива
-		quickSort(left, pivot - 1);
+		quickSort_ip(left, pivot - 1);
 	if (right > pivot)
-		quickSort(pivot + 1, right);
+		quickSort_ip(pivot + 1, right);
 }
 
 void print_to_file(){
@@ -133,6 +216,8 @@ void push_ip(){
 	ssam_ip[max_mass_ip] = 1;
 	max_mass_ip++;
 }
+
+
 
 void read_max_count(){
 	FILE *fi = fopen("all.txt", "r");
@@ -253,7 +338,7 @@ int main(){
 	}
 	for (int i = 0; i < max_mass_ip; i++)
 		printf("%d) %d\n", mass_ip[i], ssam_ip[i]);
-	quickSort(0, max_mass_ip-1);
+	quickSort_ip(0, max_mass_ip-1);
 	for (int i = 0; i < max_mass_ip; i++)
 		printf("%d) %d\n", mass_ip[i], ssam_ip[i]);
 	int super_max = 0;
@@ -261,11 +346,11 @@ int main(){
 		super_max += ssam_ip[i];
 	printf("\n\n#############################\n%d\n\n", super_max);
 	for (int i = 0; i < 3; i++){
-		load();
-		printf("%ld\n", baes());
+		load_ip();
+		printf("%ld\n", baes_ip());
 	}
 	//printf("\n%lld\n", global->time);
-	//print_to_file();
+	//print_to_file_ip();
 	//printf("%ld\n", baes());
 	//load();
 	//printf("%ld\n", baes());
