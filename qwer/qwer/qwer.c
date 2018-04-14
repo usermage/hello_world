@@ -6,6 +6,7 @@
 #include <malloc.h>
 #include <string.h>
 #include <stdio.h>
+#include <math.h>
 
 FILE *zlo;
 
@@ -22,6 +23,102 @@ struct packet{
 };
 
 struct packet *global;
+
+int mass_ip[1000];
+int ssam_ip[1000];
+int old_mass_ip[1000];
+int old_ssam_ip[1000];
+int max_mass_ip;
+int old_max_mass_ip;
+
+int pop();
+
+#define z 3
+int max_const = 1000;
+
+int pos_ip(int a){
+	for (int i = 0; i < old_max_mass_ip; i++){
+		if (old_mass_ip[i] == a)
+			return old_ssam_ip[i];
+	}
+	return 0;
+}
+
+void load(){
+	old_max_mass_ip = 0;
+	FILE *fi = fopen("1.txt", "r");
+	fscanf(fi, "%d", &old_max_mass_ip);
+	for (int i = 0; i < old_max_mass_ip; i++)
+		fscanf(fi, "%d %d", &old_mass_ip[i], &old_ssam_ip[i]);
+	fclose(fi);
+}
+
+double baes(){
+	double result = 0.0;
+	for (int i = 0; i < max_mass_ip; i++)
+		result += log(((double)(ssam_ip[i] + z)) / (pos_ip(mass_ip[i]) + z*max_const));
+	printf("! = %lf\n", result);
+}
+
+int correct_ip(struct packet * mu){
+	if (mu->ip == global->ip)
+		return 1;
+	else return 0;
+}
+
+void quickSort(int left, int right)
+{
+	int pivot; // разрешающий элемент
+	int l_hold = left; //левая граница
+	int r_hold = right; // правая граница
+	pivot = mass_ip[left];
+	while (left < right) // пока границы не сомкнутся
+	{
+		while ((mass_ip[right] >= pivot) && (left < right))
+			right--; // сдвигаем правую границу пока элемент [right] больше [pivot]
+		if (left != right) // если границы не сомкнулись
+		{
+			mass_ip[left] = mass_ip[right]; // перемещаем элемент [right] на место разрешающего
+			left++; // сдвигаем левую границу вправо 
+		}
+		while ((mass_ip[left] <= pivot) && (left < right))
+			left++; // сдвигаем левую границу пока элемент [left] меньше [pivot]
+		if (left != right) // если границы не сомкнулись
+		{
+			mass_ip[right] = mass_ip[left]; // перемещаем элемент [left] на место [right]
+			right--; // сдвигаем правую границу вправо 
+		}
+	}
+	mass_ip[left] = pivot; // ставим разрешающий элемент на место
+	pivot = left;
+	left = l_hold;
+	right = r_hold;
+	if (left < pivot) // Рекурсивно вызываем сортировку для левой и правой части массива
+		quickSort(left, pivot - 1);
+	if (right > pivot)
+		quickSort(pivot + 1, right);
+}
+
+void print_to_file(){
+
+}
+
+void push_ip(){
+	for (int i = 0; i < max_mass_ip;i++)
+	if (correct_ip(&mass_ip[i])){
+		ssam_ip[i]++;
+		return;
+	}
+	mass_ip[max_mass_ip] = global->ip;
+	ssam_ip[max_mass_ip] = 1;
+	max_mass_ip++;
+}
+
+void read_max_count(){
+	FILE *fi = fopen("all.txt", "r");
+	fscanf(fi, "%d", &max_const);
+	fclose(fi);
+}
 
 //Начальные символы
 void start_search(){
@@ -121,18 +218,25 @@ int parse(){
 	global->protocol = get_bis_type(s + i_start);
 	next_s(&i, &i_start);
 	global->rr = atoi(s + i_start);
-	print_packet(global);
+//	print_packet(global);
+	push_ip();
 	return 1;
 }
 
 int main(){
+	read_max_count();
 	global = (struct packet*)malloc(sizeof(struct packet));
 	zlo = fopen("test", "rb");
 	start_search();
 	while (parse()){
 		
 	}
+	quickSort(0, max_mass_ip);
+	for (int i = 0; i < max_mass_ip; i++)
+		printf("%d) %d\n", mass_ip[i], ssam_ip[i]);
+	load();
 	//printf("\n%lld\n", global->time);
+	printf("%ld\n", baes());
 	fclose(zlo);
 }
 
