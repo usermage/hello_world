@@ -1,21 +1,21 @@
-﻿Сборка начата 14.04.2018 14:58:37.
+﻿Сборка начата 14.04.2018 15:55:37.
      1>Проект "C:\Users\Buka\qwer\qwer\qwer.vcxproj" в узле 2 (целевые объекты Build).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /Od /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Release\qwer.pch" /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt qwer.c
          qwer.c
-     1>qwer.c(108): warning C4133: функция: несовместимые типы - из "int *" в "packet *"
-     1>qwer.c(158): warning C4018: <: несоответствие типов со знаком и без знака
-     1>qwer.c(218): warning C4013: get_bis_type: нет определения; предполагается "extern" с возвратом типа "int"
+     1>qwer.c(128): warning C4133: функция: несовместимые типы - из "int *" в "packet *"
+     1>qwer.c(178): warning C4018: <: несоответствие типов со знаком и без знака
+     1>qwer.c(238): warning C4013: get_bis_type: нет определения; предполагается "extern" с возвратом типа "int"
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Buka\qwer\Release\qwer.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Buka\qwer\Release\qwer.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Buka\qwer\Release\qwer.lib" /MACHINE:X86 /SAFESEH Release\lin_s.obj
          Release\qwer.obj
          Release\stdafx.obj
          Создание кода
-     1>c:\users\buka\qwer\qwer\qwer.c(61): warning C4716: baes: должна возвращать значение
+     1>c:\users\buka\qwer\qwer\qwer.c(72): warning C4716: baes: должна возвращать значение
          Создание кода завершено
          qwer.vcxproj -> C:\Users\Buka\qwer\Release\qwer.exe
      1>Сборка проекта "C:\Users\Buka\qwer\qwer\qwer.vcxproj" завершена (целевые объекты Build).
 
 Сборка успешно завершена.
 
-Затраченное время: 00:00:02.30
+Затраченное время: 00:00:00.49

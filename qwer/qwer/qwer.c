@@ -44,19 +44,30 @@ int pos_ip(int a){
 	return 0;
 }
 
+int keeek = 0;
+
 void load(){
+	int mmmax = 0;
 	old_max_mass_ip = 0;
-	FILE *fi = fopen("1.txt", "r");
+	char sp[100];
+	sprintf(sp, "%d.txt", ++keeek);
+	FILE *fi = fopen(sp, "r");
 	fscanf(fi, "%d", &old_max_mass_ip);
-	for (int i = 0; i < old_max_mass_ip; i++)
+	for (int i = 0; i < old_max_mass_ip; i++){
 		fscanf(fi, "%d %d", &old_mass_ip[i], &old_ssam_ip[i]);
+		mmmax += old_ssam_ip[i];
+	}
+	printf("\n\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n%d\n\n", mmmax);
 	fclose(fi);
 }
 
 double baes(){
 	double result = 0.0;
-	for (int i = 0; i < max_mass_ip; i++)
-		result += log(((double)(ssam_ip[i] + z)) / (pos_ip(mass_ip[i]) + z*max_const));
+	for (int i = 0; i < max_mass_ip; i++){
+		int a = pos_ip(mass_ip[i]);
+		result += a*log(((double)(ssam_ip[i] + z)) / ((105) + z*max_const));
+		printf("! = %lf\n", result);
+	}
 	printf("! = %lf\n", result);
 }
 
@@ -72,6 +83,7 @@ void quickSort(int left, int right)
 	int l_hold = left; //левая граница
 	int r_hold = right; // правая граница
 	pivot = mass_ip[left];
+	int pivot_help = ssam_ip[left];
 	while (left < right) // пока границы не сомкнутся
 	{
 		while ((mass_ip[right] >= pivot) && (left < right))
@@ -79,6 +91,7 @@ void quickSort(int left, int right)
 		if (left != right) // если границы не сомкнулись
 		{
 			mass_ip[left] = mass_ip[right]; // перемещаем элемент [right] на место разрешающего
+			ssam_ip[left] = ssam_ip[right];
 			left++; // сдвигаем левую границу вправо 
 		}
 		while ((mass_ip[left] <= pivot) && (left < right))
@@ -86,10 +99,12 @@ void quickSort(int left, int right)
 		if (left != right) // если границы не сомкнулись
 		{
 			mass_ip[right] = mass_ip[left]; // перемещаем элемент [left] на место [right]
+			ssam_ip[right] = ssam_ip[left];
 			right--; // сдвигаем правую границу вправо 
 		}
 	}
 	mass_ip[left] = pivot; // ставим разрешающий элемент на место
+	ssam_ip[left] = pivot_help;
 	pivot = left;
 	left = l_hold;
 	right = r_hold;
@@ -100,7 +115,12 @@ void quickSort(int left, int right)
 }
 
 void print_to_file(){
-
+	FILE *fi = fopen("1.txt", "w");
+	fprintf(fi, "%d\n", max_mass_ip);
+	for (int i = 0; i < max_mass_ip; i++){
+		fprintf(fi, "%d %d\n", mass_ip[i], ssam_ip[i]);
+	}
+	fclose(fi);
 }
 
 void push_ip(){
@@ -231,12 +251,24 @@ int main(){
 	while (parse()){
 		
 	}
-	quickSort(0, max_mass_ip);
 	for (int i = 0; i < max_mass_ip; i++)
 		printf("%d) %d\n", mass_ip[i], ssam_ip[i]);
-	load();
+	quickSort(0, max_mass_ip-1);
+	for (int i = 0; i < max_mass_ip; i++)
+		printf("%d) %d\n", mass_ip[i], ssam_ip[i]);
+	int super_max = 0;
+	for (int i = 0; i < max_mass_ip; i++)
+		super_max += ssam_ip[i];
+	printf("\n\n#############################\n%d\n\n", super_max);
+	for (int i = 0; i < 3; i++){
+		load();
+		printf("%ld\n", baes());
+	}
 	//printf("\n%lld\n", global->time);
-	printf("%ld\n", baes());
+	//print_to_file();
+	//printf("%ld\n", baes());
+	//load();
+	//printf("%ld\n", baes());
 	fclose(zlo);
 }
 
