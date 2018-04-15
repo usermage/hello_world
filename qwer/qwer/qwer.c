@@ -16,7 +16,7 @@ int to_rr = 787;
 int to_protocol = 80;
 int to_time=2083;
 
-char s[1000];
+char s[10000];
 
 //Структура одного пакета
 struct packet{
@@ -233,8 +233,8 @@ void push_ip(){
 	max_mass_ip++;
 	if (max_mass_ip % 1000 == 0){
 		size_mass_ip += 1000;
-		mass_ip = realloc(mass_ip, (size_mass_ip));
-		ssam_ip = realloc(ssam_ip, (size_mass_ip));
+		mass_ip = realloc(mass_ip, (size_mass_ip*sizeof(int)));
+		ssam_ip = realloc(ssam_ip, (size_mass_ip*sizeof(int)));
 	}
 }
 
@@ -367,8 +367,8 @@ void push_my_ip(){
 	max_mass_my_ip++;
 	if (max_mass_my_ip % 1000 == 0){
 		size_mass_my_ip += 1000;
-		mass_my_ip = realloc(mass_ip, (size_mass_my_ip));
-		ssam_my_ip = realloc(ssam_ip, (size_mass_my_ip));
+		mass_my_ip = realloc(mass_my_ip, (size_mass_my_ip*sizeof(int)));
+		ssam_my_ip = realloc(ssam_my_ip, (size_mass_my_ip*sizeof(int)));
 	}
 }
 
@@ -510,8 +510,8 @@ void push_rr(){
 	max_mass_rr++;
 	if (max_mass_rr % 1000 == 0){
 		size_mass_rr += 1000;
-		mass_rr = realloc(mass_rr, (size_mass_rr));
-		ssam_rr = realloc(ssam_rr, (size_mass_rr));
+		mass_rr = realloc(mass_rr, (size_mass_rr*sizeof(int)));
+		ssam_rr = realloc(ssam_rr, (size_mass_rr*sizeof(int)));
 	}
 }
 
@@ -653,8 +653,8 @@ void push_protocol(){
 	max_mass_protocol++;
 	if (max_mass_protocol % 1000 == 0){
 		size_mass_protocol += 1000;
-		mass_protocol = realloc(mass_protocol, (size_mass_protocol));
-		ssam_protocol = realloc(ssam_protocol, (size_mass_protocol));
+		mass_protocol = realloc(mass_protocol, (size_mass_protocol*sizeof(int)));
+		ssam_protocol = realloc(ssam_protocol, (size_mass_protocol*sizeof(int)));
 	}
 }
 
@@ -800,10 +800,20 @@ void push_time(){
 	mass_time[max_mass_time] = global->time;
 	ssam_time[max_mass_time] = 1;
 	max_mass_time++;
+	/*if (max_mass_time>=1000){
+		printf("\n\n");
+		for (int i = 0; i < 1000; i++)
+			printf("%d)%lld  ", i, mass_time[i]);
+		printf("!!!\n");
+
+		for (int i = 0; i < 1000; i++)
+			printf("%d)%lld  ", i, ssam_time[i]);
+		system("pause");
+	}*/
 	if (max_mass_time % 1000 == 0){
 		size_mass_time += 1000;
-		mass_time = realloc(mass_time, (size_mass_time));
-		ssam_time = realloc(ssam_time, (size_mass_time));
+		mass_time = realloc(mass_time, (size_mass_time*sizeof(long long int)));
+		ssam_time = realloc(ssam_time, (size_mass_time*sizeof(long long int)));
 	}
 }
 
@@ -940,6 +950,7 @@ int parse(){
 	return 1;
 }
 
+//Инициализирует переменные для распознования
 void init(){
 	size_mass_ip = 1000;
 	mass_ip = calloc(sizeof(int), 1000);
@@ -958,6 +969,7 @@ void init(){
 	ssam_time = calloc(sizeof(long long int), 1000);
 }
 
+//Очищает память после распознования ещё одного тестового пользователя
 void deinit_after_file(){
 	free(old_mass_ip);
 	free(old_ssam_ip);
@@ -971,6 +983,7 @@ void deinit_after_file(){
 	free(old_ssam_time);
 }
 
+//Очищает память после завершения распознования
 void deinit(){
 	size_mass_ip = 0;
 	max_mass_ip = 0;
@@ -994,6 +1007,11 @@ void deinit(){
 	free(ssam_time);
 }
 
+//Количество тестовый пользователей
+#define USER 6
+//Параметры для классификации
+#define PARAMETRS 5
+
 int main(){
 	init();
 	read_max_count();
@@ -1001,7 +1019,7 @@ int main(){
 	zlo = fopen("test", "rb");
 	start_search();
 	while (parse()){
-		
+		//if (max_mass_time == 1000) break;
 	}//Доп операция над временем
 	for (int i = max_mass_time; i > 0; i--)
 		mass_time[i] -= mass_time[i - 1];
@@ -1034,9 +1052,9 @@ int main(){
 
 	//Проверка
 	
-	double soda[5][6];
+	double soda[PARAMETRS][USER];
 	//Формируем список значений [параметр][юзер]
-	for (int i = 0; i < 6; i++){
+	for (int i = 0; i < USER; i++){
 		load_ip();
 		soda[0][i] = baes_ip();
 		//printf("ip:%lf\n", soda[0][i]);
@@ -1062,59 +1080,60 @@ int main(){
 
 	//printf("\n%lld\n", global->time);
 	printf("\nNaive bayes result:\n");
-	for (int i = 0; i < 6; i++){
+	for (int i = 0; i < USER; i++){
 		printf("User %d: ", i + 1);
-		for (int u = 0; u < 5; u++)
+		for (int u = 0; u < PARAMETRS; u++)
 			printf("%lf\t", soda[u][i]);
 		printf("\n");
 	}
 	//Считаем сумму для каждого параметра (для подсчёта относительной величины)
-	double proc[5];
-	for (int i = 0; i < 6; i++)
+	double proc[PARAMETRS];
+	for (int i = 0; i < USER; i++)
 		proc[i] = 0;
-	for (int i = 0; i < 6; i++){
-		for (int u = 0; u < 5; u++)
+	for (int i = 0; i < USER; i++){
+		for (int u = 0; u < PARAMETRS; u++)
 			proc[u] += soda[u][i];
 	}
 	printf("\nSumm:\n");
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < PARAMETRS; i++)
 		printf("%lf\t", proc[i]);
 	printf("\n\n");
 
 	printf("Chance of belonging:\n");
-	for (int i = 0; i < 6; i++){
+	for (int i = 0; i < USER; i++){
 		printf("User %d: ", i+1);
-		for (int u = 0; u < 5; u++)
+		for (int u = 0; u < PARAMETRS; u++)
 		if (proc[u] != 0.0)
 			printf("%lf\t", fabs(soda[u][i]/proc[u]*100));
 		printf("\n");
 	}
 
+	//Для балансировки важности парметров
 	const double lol[] = { 0.73, 0.59, 0.31, 0.23, 0.69 };
 
 	//Считаем проценты для каждого юзера
-	double maxim[6];
-	for (int i = 0; i < 6; i++){
+	double maxim[USER];
+	for (int i = 0; i < USER; i++){
 		maxim[i] = 0;
-		for (int u = 0; u < 5; u++)
+		for (int u = 0; u < PARAMETRS; u++)
 		if (proc[u] != 0.0)
 			maxim[i] += soda[u][i] / proc[u] * lol[u];
 	}
 
 	printf("\nResult value:\n");
-	for (int i = 0; i < 6; i++)
+	for (int i = 0; i < USER; i++)
 		printf("User %d = %lf\n", i+1, maxim[i]);
 	//С самым наибольшим - искомый
 	int rm = 0;
 	double rmr = maxim[0];
-	for (int i = 1; i < 6; i++)
+	for (int i = 1; i < USER; i++)
 	if (maxim[i]>rmr){
 		rmr = maxim[i];
 		rm = i;
 	}
 
 	printf("\n");
-	if (rmr < 1 / 6 * 5)
+	if (rmr < 1 / USER * PARAMETRS)
 		printf("Warning!\n");
 	printf("It`s user %d\n", rm + 1);
 	//Загрузка данных в тестовые файлы
