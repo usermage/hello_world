@@ -5,6 +5,7 @@
 int _tmain(int argc, _TCHAR* argv[])
 {
 	printf("Hello");
+<<<<<<< Updated upstream
 	return 0;
 
 
@@ -12,3 +13,6 @@ int _tmain(int argc, _TCHAR* argv[])
 
 }
 
+=======
+	return 0;}
+>>>>>>> Stashed changes
